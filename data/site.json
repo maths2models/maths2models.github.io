@@ -1,0 +1,18 @@
+{
+  "name": "Maths2Models",
+  "tagline": "Where Math Meets Intelligence",
+  "youtube": "https://youtube.com/@maths2models",
+  "github": "https://github.com/maths2models",
+  "linkedin": "",
+  "telegram": "",
+  "nav": [
+    { "label": "Home",       "href": "/" },
+    { "label": "Foundation", "href": "/foundation/" },
+    { "label": "Diploma",    "href": "/diploma/" },
+    { "label": "Degree",     "href": "/degree/" },
+    { "label": "Projects",   "href": "/projects/" },
+    { "label": "Blog",       "href": "/blog/" },
+    { "label": "Resources",  "href": "/resources/" },
+    { "label": "About",      "href": "/about/" }
+  ]
+}
