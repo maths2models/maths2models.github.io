@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Under Maintenance | Maths2Models</title>
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+  <script src="/assets/js/theme.js"></script>
+  <style>
+    .maintenance-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 70vh;
+      text-align: center;
+      padding: 2rem;
+    }
+    .maintenance-icon {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+      animation: pulse 2s infinite ease-in-out;
+    }
+    .maintenance-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .maintenance-text {
+      font-size: 1.25rem;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin-bottom: 2rem;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 0.8; }
+      50% { transform: scale(1.1); opacity: 1; }
+      100% { transform: scale(1); opacity: 0.8; }
+    }
+  </style>
+</head>
+<body>
+  <div id="navbar-container"></div>
+  
+  <main id="main-content">
+    <div class="maintenance-container">
+      <div class="maintenance-icon">🛠️</div>
+      <h1 class="maintenance-title" id="maintenance-title">We'll Be Right Back!</h1>
+      <p class="maintenance-text" id="maintenance-text">
+        Maths2Models or the specific section you're trying to access is currently undergoing scheduled maintenance to bring you an even better experience.
+      </p>
+      <a href="/" class="btn btn--primary" id="maintenance-home-btn" style="display: none;">Return to Homepage</a>
+    </div>
+  </main>
+
+  <div id="footer-container"></div>
+
+  <!-- Standard Scripts for Navbar/Footer -->
+  <script src="/assets/js/utils.js"></script>
+  <script src="/assets/js/core.js"></script>
+  
+  <script>
+    (async function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const section = urlParams.get('section') || 'global';
+      
+      // Check if maintenance is still active for this section
+      const siteConfig = await M2M.fetchJSON('/data/site.json');
+      if (siteConfig && siteConfig.maintenance) {
+        const m = siteConfig.maintenance;
+        if (section === 'global' && !m.global) {
+          window.location.href = '/';
+          return;
+        } else if (section !== 'global' && !m.global && !m[section]) {
+          const route = section === 'home' ? '/' : `/${section}/`;
+          window.location.href = route;
+          return;
+        }
+      }
+      
+      const titleEl = document.getElementById('maintenance-title');
+      const textEl = document.getElementById('maintenance-text');
+      const homeBtn = document.getElementById('maintenance-home-btn');
+      const navContainer = document.getElementById('navbar-container');
+      const footerContainer = document.getElementById('footer-container');
+
+      if (section === 'global') {
+          titleEl.textContent = "Platform Under Maintenance";
+          textEl.textContent = "The entire Maths2Models platform is currently undergoing scheduled maintenance to bring you an even better experience. We'll be right back!";
+          homeBtn.style.display = 'none';
+          
+          // Hide navbar and footer completely for global maintenance
+          if(navContainer) navContainer.style.display = 'none';
+          if(footerContainer) footerContainer.style.display = 'none';
+      } else {
+          // Format section name (e.g., 'courses' -> 'Courses')
+          const sectionName = section.charAt(0).toUpperCase() + section.slice(1);
+          titleEl.textContent = `${sectionName} Under Maintenance`;
+          textEl.textContent = `The ${sectionName} section is currently undergoing scheduled maintenance. The rest of the platform is still fully accessible!`;
+          homeBtn.style.display = 'inline-flex';
+      }
+    })();
+  </script>
+</body>
+</html>
