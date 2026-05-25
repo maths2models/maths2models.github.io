@@ -1,1 +1,204 @@
-<!-- Maths2Models | home page | TODO -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Maths2Models — Structured learning for IITM BS Data Science. Videos, notes, PYQs, and practice problems in one place.">
+  <meta property="og:title" content="Maths2Models | Where Math Meets Intelligence">
+  <meta property="og:description" content="Structured learning for IITM BS Data Science — videos, notes, PYQs, and practice in one place.">
+  <meta property="og:image" content="/assets/img/og.png">
+  <meta property="og:url" content="https://maths2models.github.io">
+  <meta property="og:type" content="website">
+  <title>Maths2Models | Where Math Meets Intelligence</title>
+  <link rel="icon" href="/assets/img/logo.png" type="image/png">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css?v=55">
+  <link rel="stylesheet" href="/assets/css/components.css?v=55">
+  <link rel="stylesheet" href="/assets/css/animations.css">
+  <script src="/assets/js/theme.js"></script>
+</head>
+<body>
+  <div id="navbar-container"></div>
+
+  <main id="main-content">
+
+    <!-- ── HERO SECTION ──────────────────────────────────── -->
+    <section class="hero" id="hero">
+      <div class="hero-particles">
+        <div class="hero-particle"></div>
+        <div class="hero-particle"></div>
+        <div class="hero-particle"></div>
+        <div class="hero-particle"></div>
+        <div class="hero-particle"></div>
+        <div class="hero-particle"></div>
+      </div>
+
+      <div class="hero-content">
+        <div class="hero-label">IITM BS DATA SCIENCE PLATFORM</div>
+        <h1 class="hero-title">
+          <span style="color:var(--color-text-primary)">Maths</span><span style="color:red">2</span><span style="color:#ffd200">Models</span>
+        </h1>
+        <p class="hero-subtitle">Where Math Meets Intelligence</p>
+        <p class="hero-description">
+          Structured learning for IITM BS Data Science — videos, notes, PYQs, and practice in one place.
+        </p>
+        <div class="hero-cta">
+          <a href="/courses/" class="btn btn--primary btn--lg">Explore Courses →</a>
+          <a href="https://youtube.com/@maths2models" target="_blank" rel="noopener" class="btn btn--secondary btn--lg">Watch on YouTube ↗</a>
+        </div>
+      </div>
+
+      <div class="hero-scroll">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="/assets/svg/sprite.svg#icon-chevron-down"></use></svg>
+      </div>
+    </section>
+
+    <!-- ── STATS BAR ─────────────────────────────────────── -->
+    <div id="stats-bar-container"></div>
+
+    <!-- ── LEARNING PATHS ────────────────────────────────── -->
+    <section class="section" id="learning-paths">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-label">Start Your Journey</div>
+          <h2 class="section-title">Learning Paths</h2>
+          <p class="section-subtitle">Progress through three levels — from mathematical foundations to advanced AI models.</p>
+        </div>
+        <div class="grid grid--3" id="paths-grid"></div>
+      </div>
+    </section>
+
+    <!-- ── LATEST VIDEOS ─────────────────────────────────── -->
+    <section class="section" id="latest-videos-section" style="display:none">
+      <div class="container">
+        <div class="section-top">
+          <h2 class="section-title">Latest Videos</h2>
+          <a href="https://youtube.com/@maths2models" target="_blank" rel="noopener" class="view-all-link">View All →</a>
+        </div>
+        <div class="scroll-strip" id="latest-videos-strip"></div>
+      </div>
+    </section>
+
+    <!-- ── LATEST NOTES ──────────────────────────────────── -->
+    <section class="section" id="latest-notes-section" style="display:none">
+      <div class="container">
+        <div class="section-top">
+          <h2 class="section-title">Latest Notes</h2>
+          <a href="/resources/" class="view-all-link">View All →</a>
+        </div>
+        <div class="grid grid--4" id="latest-notes-grid"></div>
+      </div>
+    </section>
+
+    <!-- ── FEATURED PROJECTS ─────────────────────────────── -->
+    <section class="section" id="featured-projects-section" style="display:none">
+      <div class="container">
+        <div class="section-top">
+          <h2 class="section-title">Featured Projects</h2>
+          <a href="/projects/" class="view-all-link">View All →</a>
+        </div>
+        <div class="grid grid--3" id="featured-projects-grid"></div>
+      </div>
+    </section>
+
+    <!-- ── RECENT BLOG ───────────────────────────────────── -->
+    <section class="section" id="recent-blog-section" style="display:none">
+      <div class="container">
+        <div class="section-top">
+          <h2 class="section-title">Recent Blog Posts</h2>
+          <a href="/blog/" class="view-all-link">View All →</a>
+        </div>
+        <div class="grid grid--3" id="recent-blog-grid"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="footer-container"></div>
+
+  <script src="/assets/js/utils.js?v=55"></script>
+  <script src="/assets/js/router.js"></script>
+  <script src="/assets/js/render.js?v=55"></script>
+  <script src="/assets/js/core.js?v=55"></script>
+  <script>
+    (async function () {
+      if (await M2M.checkMaintenance()) return;
+      // Fetch all data
+      const [courses, projects, blog] = await Promise.all([
+        M2M.fetchJSON('/data/courses-index.json'),
+        M2M.fetchJSON('/data/projects-index.json'),
+        M2M.fetchJSON('/data/blog-index.json')
+      ]);
+
+      // ── STATS BAR ────────────────────────────────────
+      const counts = await M2M.countItems(courses);
+      document.getElementById('stats-bar-container').innerHTML = M2M.render.statsBar(counts);
+
+      // ── LEARNING PATHS ────────────────────────────────
+      const pathsGrid = document.getElementById('paths-grid');
+      if (pathsGrid) {
+        const site = await M2M.fetchJSON('/data/site.json');
+        const m = (site && site.maintenance) || {};
+        const isMaintenance = m.global || m.courses;
+
+
+        
+
+                pathsGrid.innerHTML =
+          M2M.render.pathCard('α', 'Foundation', 'Mathematics, statistics, and programming fundamentals.', '32 Credits', ['Math 1', 'Stats 1', 'CT', 'Eng 1', 'Python', 'etc...'], null) +
+          M2M.render.pathCard('β', 'Diploma', 'Data structures, ML foundations, and business analytics.', '54 Credits', ['MLF', 'MLT', 'BDM', 'DBMS', 'Java', 'etc...'], null) +
+          M2M.render.pathCard('γ', 'Degree', 'Deep learning, NLP, computer vision, and advanced AI.', '56 Credits', ['DL', 'CV', 'NLP', 'RL', 'etc...'], null);
+      }
+
+      // ── LATEST VIDEOS ─────────────────────────────────
+      const videos = M2M.getRecentVideos(courses);
+      if (videos.length > 0) {
+        document.getElementById('latest-videos-section').style.display = '';
+        document.getElementById('latest-videos-strip').innerHTML = videos.map(v => M2M.render.videoCard(v)).join('');
+      }
+
+      // ── LATEST NOTES ──────────────────────────────────
+      const notes = M2M.getRecentNotes(courses);
+      if (notes.length > 0) {
+        document.getElementById('latest-notes-section').style.display = '';
+        document.getElementById('latest-notes-grid').innerHTML = notes.map(n => `
+          <div class="card observe-fade">
+            <div class="card-body">
+              <div class="card-meta">${M2M.render.badge((n.type || 'pdf').toUpperCase(), 'primary')}</div>
+              <h3 class="card-title" style="font-size:var(--font-size-base)">${M2M.escapeHTML(n.title)}</h3>
+              <p class="text-sm text-secondary">${M2M.escapeHTML(n.courseName || '')}</p>
+              <div class="card-footer">
+                ${n.file_url
+                  ? '<a href="' + n.file_url + '" target="_blank" rel="noopener" class="btn btn--primary btn--sm">Download ↗</a>'
+                  : '<span class="text-muted text-sm">Coming Soon</span>'
+                }
+              </div>
+            </div>
+          </div>
+        `).join('');
+      }
+
+      // ── FEATURED PROJECTS ─────────────────────────────
+      if (projects && projects.projects) {
+        const featured = projects.projects.filter(p => p.featured && p.status !== 'coming-soon');
+        if (featured.length > 0) {
+          document.getElementById('featured-projects-section').style.display = '';
+          document.getElementById('featured-projects-grid').innerHTML = featured.map(p => M2M.render.projectCard(p)).join('');
+        }
+      }
+
+      // ── RECENT BLOG ───────────────────────────────────
+      if (blog && blog.posts) {
+        const recentPosts = blog.posts.filter(p => p.status !== 'coming-soon').slice(0, 3);
+        if (recentPosts.length > 0) {
+          document.getElementById('recent-blog-section').style.display = '';
+          document.getElementById('recent-blog-grid').innerHTML = recentPosts.map(p => M2M.render.blogCard(p)).join('');
+        }
+      }
+
+      // Re-init scroll effects after dynamic content loaded
+      requestAnimationFrame(() => M2M.initScrollEffects());
+    })();
+  </script>
+</body>
+</html>
