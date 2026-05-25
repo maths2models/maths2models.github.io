@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Projects — Maths2Models. Data science, machine learning, and programming projects.">
+  <meta property="og:title" content="Projects | Maths2Models">
+  <meta property="og:description" content="Data science, machine learning, and programming projects.">
+  <meta property="og:image" content="/assets/img/og.png">
+  <title>Projects | Maths2Models</title>
+  <link rel="icon" href="/assets/img/logo.png" type="image/png">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css?v=55">
+  <link rel="stylesheet" href="/assets/css/components.css?v=55">
+  <link rel="stylesheet" href="/assets/css/animations.css">
+  <script src="/assets/js/theme.js"></script>
+</head>
+<body>
+  <div id="navbar-container"></div>
+  <div id="breadcrumb-container"></div>
+
+  <main id="main-content">
+    <div class="section">
+      <div class="container">
+        <div class="shimmer" style="height:200px;border-radius:var(--radius-lg)"></div>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-container"></div>
+
+  <script src="/assets/js/utils.js?v=55"></script>
+  <script src="/assets/js/router.js"></script>
+  <script src="/assets/js/render.js?v=55"></script>
+  <script src="/assets/js/core.js?v=55"></script>
+  <script>
+    (async function () {
+      function renderListing(data, container) {
+        let projects = data.projects || [];
+
+        // Filter out categories that are explicitly disabled in categories_status
+        if (data.categories_status) {
+          projects = projects.filter(p => data.categories_status[p.category] !== false);
+        }
+
+        const categories = ['All'].concat(
+          (data.categories_order || []).filter(cat => !data.categories_status || data.categories_status[cat] !== false)
+        );
+
+        if (projects.length === 0) {
+          container.innerHTML = `
+            <div class="section">
+              <div class="container">
+                ${M2M.render.pageHeader('Projects', 'Data science, ML, and programming projects.')}
+                ${M2M.render.comingSoon(3, 'Projects are coming soon.')}
+              </div>
+            </div>
+          `;
+          return;
+        }
+
+        const filterBar = `
+          <div class="filter-bar" id="project-filters">
+            ${categories.map(cat =>
+              '<button class="filter-btn' + (cat === 'All' ? ' active' : '') + '" data-filter="' + cat + '">' + cat + '</button>'
+            ).join('')}
+          </div>
+        `;
+
+        container.innerHTML = `
+          <div class="section">
+            <div class="container">
+              ${M2M.render.pageHeader('Projects', 'Data science, ML, and programming projects.')}
+              ${filterBar}
+              <div class="grid grid--3" id="projects-grid">
+                ${projects.map(p => M2M.render.projectCard(p)).join('')}
+              </div>
+            </div>
+          </div>
+        `;
+
+        document.querySelectorAll('#project-filters .filter-btn').forEach(btn => {
+          btn.addEventListener('click', function() {
+            document.querySelectorAll('#project-filters .filter-btn').forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            const filter = this.dataset.filter;
+            const filtered = filter === 'All' ? projects : projects.filter(p => p.category === filter);
+            document.getElementById('projects-grid').innerHTML = filtered.length > 0
+              ? filtered.map(p => M2M.render.projectCard(p)).join('')
+              : '<div class="coming-soon" style="grid-column:1/-1"><div class="coming-soon-icon">🚀</div><h3>No projects in this category yet</h3></div>';
+            M2M.initScrollEffects();
+          });
+        });
+
+        requestAnimationFrame(() => M2M.initScrollEffects());
+      }
+
+      function renderDetail(project, data, container) {
+        const source = data || project;
+        const techBadges = (source.tags || []).map(t => M2M.render.badge(t, 'primary')).join(' ');
+        const links = source.links || {};
+        container.innerHTML = `
+          <div class="section">
+            <div class="container">
+              <div style="padding:var(--space-8) 0">
+                <h1>${M2M.escapeHTML(project.title)}</h1>
+                <div style="display:flex;gap:var(--space-3);flex-wrap:wrap;margin:var(--space-4) 0">
+                  ${project.category ? M2M.render.badge(project.category, 'primary') : ''}
+                  ${M2M.render.statusBadge(project.status)}
+                </div>
+                ${techBadges ? '<div style="display:flex;gap:var(--space-2);flex-wrap:wrap;margin-bottom:var(--space-6)">' + techBadges + '</div>' : ''}
+                <div style="display:flex;gap:var(--space-3);margin-bottom:var(--space-8)">
+                  ${links.github_url && links.github_url !== '#' ? '<a href="' + links.github_url + '" target="_blank" rel="noopener" class="btn btn--secondary"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><use href="/assets/svg/sprite.svg#icon-github"></use></svg> GitHub</a>' : ''}
+                  ${links.live_demo_url && links.live_demo_url !== '#' ? '<a href="' + links.live_demo_url + '" target="_blank" rel="noopener" class="btn btn--primary">Live Demo ↗</a>' : ''}
+                </div>
+                <div class="article-content">
+                  <p style="font-size: 1.2rem; margin-bottom: var(--space-8);">${M2M.escapeHTML(project.description)}</p>
+                  ${links.youtube_id 
+                    ? `<div style="margin-top:var(--space-8);"><iframe width="100%" height="400" src="https://www.youtube.com/embed/${links.youtube_id}" frameborder="0" allowfullscreen></iframe></div>` 
+                    : ''}
+                </div>
+              </div>
+              <div style="text-align:center;padding:var(--space-8) 0">
+                <a href="/projects/" class="btn btn--secondary">← Back to Projects</a>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+
+      await M2M.router.renderPage({
+        jsonPath: '/data/projects-index.json',
+        useSplitJson: true,
+        itemsKey: 'projects',
+        renderListing: renderListing,
+        renderDetail: renderDetail,
+        breadcrumbSection: 'Projects',
+        sectionHref: '/projects/'
+      });
+    })();
+  </script>
+</body>
+</html>
