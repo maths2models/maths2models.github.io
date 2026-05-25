@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Blog — Maths2Models. Articles on mathematics, data science, programming, and machine learning.">
+  <meta property="og:title" content="Blog | Maths2Models">
+  <meta property="og:description" content="Articles on mathematics, data science, programming, and machine learning.">
+  <meta property="og:image" content="/assets/img/og.png">
+  <title>Blog | Maths2Models</title>
+  <link rel="icon" href="/assets/img/logo.png" type="image/png">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css?v=55">
+  <link rel="stylesheet" href="/assets/css/components.css?v=55">
+  <link rel="stylesheet" href="/assets/css/animations.css">
+  <script src="/assets/js/theme.js"></script>
+</head>
+<body>
+  <div id="navbar-container"></div>
+  <div id="breadcrumb-container"></div>
+
+  <main id="main-content">
+    <div class="section">
+      <div class="container">
+        <div class="shimmer" style="height:200px;border-radius:var(--radius-lg)"></div>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-container"></div>
+
+  <script src="/assets/js/utils.js?v=55"></script>
+  <script src="/assets/js/router.js"></script>
+  <script src="/assets/js/render.js?v=55"></script>
+  <script src="/assets/js/core.js?v=55"></script>
+  <script>
+    (async function () {
+      function renderListing(data, container) {
+        let posts = data.posts || [];
+        
+        // Filter out categories that are explicitly disabled in categories_status
+        if (data.categories_status) {
+          posts = posts.filter(p => data.categories_status[p.category] !== false);
+        }
+
+        const categories = ['All'].concat(
+          (data.categories_order || []).filter(cat => !data.categories_status || data.categories_status[cat] !== false)
+        );
+
+        if (posts.length === 0) {
+          container.innerHTML = `
+            <div class="section">
+              <div class="container">
+                ${M2M.render.pageHeader('Blog', 'Articles on mathematics, data science, and machine learning.')}
+                ${M2M.render.comingSoon(3, 'Blog posts are coming soon.')}
+              </div>
+            </div>
+          `;
+          return;
+        }
+
+        const filterBar = `
+          <div class="filter-bar" id="blog-filters">
+            ${categories.map(cat =>
+              '<button class="filter-btn' + (cat === 'All' ? ' active' : '') + '" data-filter="' + cat + '">' + cat + '</button>'
+            ).join('')}
+          </div>
+        `;
+
+        container.innerHTML = `
+          <div class="section">
+            <div class="container">
+              ${M2M.render.pageHeader('Blog', 'Articles on mathematics, data science, and machine learning.')}
+              ${filterBar}
+              <div class="grid grid--3" id="blog-grid">
+                ${posts.map(p => M2M.render.blogCard(p)).join('')}
+              </div>
+            </div>
+          </div>
+        `;
+
+        document.querySelectorAll('#blog-filters .filter-btn').forEach(btn => {
+          btn.addEventListener('click', function() {
+            document.querySelectorAll('#blog-filters .filter-btn').forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            const filter = this.dataset.filter;
+            const filtered = filter === 'All' ? posts : posts.filter(p => p.category === filter);
+            document.getElementById('blog-grid').innerHTML = filtered.length > 0
+              ? filtered.map(p => M2M.render.blogCard(p)).join('')
+              : '<div class="coming-soon" style="grid-column:1/-1"><div class="coming-soon-icon">📝</div><h3>No posts in this category yet</h3></div>';
+            M2M.initScrollEffects();
+          });
+        });
+
+        requestAnimationFrame(() => M2M.initScrollEffects());
+      }
+
+      function renderDetail(post, data, container) {
+        container.innerHTML = `
+          <div class="section">
+            <div class="container">
+              <div class="article-header">
+                <h1>${M2M.escapeHTML(post.title)}</h1>
+                <div class="article-meta">
+                  ${post.published_date ? '<span>' + M2M.formatDate(post.published_date) + '</span>' : ''}
+                  ${post.category ? '<span>' + M2M.render.badge(post.category, 'primary') + '</span>' : ''}
+                  ${post.author ? '<span>' + M2M.escapeHTML(post.author) + '</span>' : ''}
+                </div>
+              </div>
+              <div class="article-content" style="min-height: 300px;">
+                <p style="font-size: 1.2rem; margin-bottom: var(--space-8);">${M2M.escapeHTML(post.description)}</p>
+                ${data && data.content_url 
+                  ? `<a href="${data.content_url}" target="_blank" class="btn btn--primary">View Full Article ↗</a>` 
+                  : '<p>Content coming soon.</p>'}
+              </div>
+              <div style="text-align:center;padding:var(--space-12) 0">
+                <a href="/blog/" class="btn btn--secondary">← Back to Blog</a>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+
+      await M2M.router.renderPage({
+        jsonPath: '/data/blog-index.json',
+        useSplitJson: true,
+        itemsKey: 'posts',
+        renderListing: renderListing,
+        renderDetail: renderDetail,
+        breadcrumbSection: 'Blog',
+        sectionHref: '/blog/'
+      });
+    })();
+  </script>
+</body>
+</html>
