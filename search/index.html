@@ -1,1 +1,56 @@
-<!-- Maths2Models | search page | TODO -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Search — Maths2Models. Find courses, blog posts, projects, and resources.">
+  <meta property="og:title" content="Search | Maths2Models">
+  <meta property="og:description" content="Search across all Maths2Models content.">
+  <meta property="og:image" content="/assets/img/og.png">
+  <title>Search | Maths2Models</title>
+  <link rel="icon" href="/assets/img/logo.png" type="image/png">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css?v=55">
+  <link rel="stylesheet" href="/assets/css/components.css?v=55">
+  <link rel="stylesheet" href="/assets/css/animations.css">
+  <script src="/assets/js/theme.js"></script>
+</head>
+<body>
+  <div id="navbar-container"></div>
+  <div id="breadcrumb-container"></div>
+
+  <main id="main-content">
+    <section class="section">
+      <div class="container">
+        <div class="page-header">
+          <h1>Search</h1>
+          <p>Find courses, blog posts, projects, and resources across the platform.</p>
+        </div>
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/svg/sprite.svg#icon-search"></use></svg>
+            <input type="text" id="search-input" class="search-input" placeholder="Search courses, topics, posts..." autocomplete="off">
+            <span class="search-shortcut">Ctrl+K</span>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-container"></div>
+
+  <script src="/assets/js/utils.js?v=55"></script>
+  <script src="/assets/js/router.js"></script>
+  <script src="/assets/js/render.js?v=55"></script>
+  <script src="/assets/js/core.js?v=55"></script>
+  <script src="/assets/js/search.js"></script>
+  <script>
+    M2M.setBreadcrumb([
+      { label: 'Home', href: '/' },
+      { label: 'Search' }
+    ]);
+    M2M.search.initSearchPage();
+  </script>
+</body>
+</html>
