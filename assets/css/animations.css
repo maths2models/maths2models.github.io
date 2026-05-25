@@ -1,1 +1,411 @@
-/* Maths2Models | animations.css | TODO */
+/* ============================================================
+   Maths2Models — animations.css
+   All keyframes, scroll-triggered animations, hover transitions
+   and motion utilities for the platform.
+
+   Depends on tokens defined in tokens.css:
+   - Transitions: --transition-fast, --transition-base, --transition-slow, --transition-bounce
+   - Shadows: --shadow-lg, --shadow-glow-primary, --shadow-glow-secondary, --shadow-glow-accent
+   - Colors: --color-primary, --color-secondary, --color-accent, --color-border-hover
+   - Gradients: --gradient-hero
+   ============================================================ */
+
+
+/* ────────────────────────────────────────────────────────────
+   1. KEYFRAMES
+   ──────────────────────────────────────────────────────────── */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.5; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) translateX(-50%); }
+  50%      { transform: translateY(-10px) translateX(-50%); }
+}
+
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes countUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes borderGlow {
+  0%, 100% { border-color: rgba(37, 99, 235, 0.2); }
+  50%      { border-color: rgba(37, 99, 235, 0.5); }
+}
+
+
+/* ────────────────────────────────────────────────────────────
+   2. UTILITY CLASSES
+   ──────────────────────────────────────────────────────────── */
+
+/* Each utility starts invisible and plays its animation
+   only when the .is-visible class is added (e.g. via JS).  */
+
+.animate-fade-in-up {
+  opacity: 0;
+}
+.animate-fade-in-up.is-visible {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.animate-fade-in {
+  opacity: 0;
+}
+.animate-fade-in.is-visible {
+  animation: fadeIn 0.6s ease forwards;
+}
+
+.animate-slide-right {
+  opacity: 0;
+}
+.animate-slide-right.is-visible {
+  animation: slideInRight 0.6s ease forwards;
+}
+
+.animate-slide-left {
+  opacity: 0;
+}
+.animate-slide-left.is-visible {
+  animation: slideInLeft 0.6s ease forwards;
+}
+
+.animate-scale-in {
+  opacity: 0;
+}
+.animate-scale-in.is-visible {
+  animation: scaleIn 0.6s ease forwards;
+}
+
+/* Staggered delays for grid children */
+.stagger-delay-1 { animation-delay: 0.1s; }
+.stagger-delay-2 { animation-delay: 0.2s; }
+.stagger-delay-3 { animation-delay: 0.3s; }
+.stagger-delay-4 { animation-delay: 0.4s; }
+.stagger-delay-5 { animation-delay: 0.5s; }
+.stagger-delay-6 { animation-delay: 0.6s; }
+
+
+/* ────────────────────────────────────────────────────────────
+   3. INTERSECTION OBSERVER CLASSES
+   Transition-based (no keyframes) for smoother scroll-driven reveals.
+   ──────────────────────────────────────────────────────────── */
+
+.observe-fade {
+  opacity: 0;
+  transform: translateY(30px) translateZ(0);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  will-change: opacity, transform;
+  backface-visibility: hidden;
+}
+.observe-fade.is-visible {
+  opacity: 1;
+  transform: translateY(0) translateZ(0);
+}
+
+.observe-slide-right {
+  opacity: 0;
+  transform: translateX(30px) translateZ(0);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  will-change: opacity, transform;
+  backface-visibility: hidden;
+}
+.observe-slide-right.is-visible {
+  opacity: 1;
+  transform: translateX(0) translateZ(0);
+}
+
+.observe-slide-left {
+  opacity: 0;
+  transform: translateX(-30px) translateZ(0);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  will-change: opacity, transform;
+  backface-visibility: hidden;
+}
+.observe-slide-left.is-visible {
+  opacity: 1;
+  transform: translateX(0) translateZ(0);
+}
+
+.observe-scale {
+  opacity: 0;
+  transform: scale(0.95) translateZ(0);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  will-change: opacity, transform;
+  backface-visibility: hidden;
+}
+.observe-scale.is-visible {
+  opacity: 1;
+  transform: scale(1) translateZ(0);
+}
+
+
+/* ────────────────────────────────────────────────────────────
+   4. HERO ANIMATIONS
+   ──────────────────────────────────────────────────────────── */
+
+.hero {
+  background-size: 200% 200%;
+  animation: gradientShift 15s ease infinite;
+}
+
+.hero-content {
+  animation: fadeInUp 0.8s ease 0.2s both;
+}
+
+.hero-label {
+  animation: fadeIn 0.6s ease 0.4s both;
+}
+
+.hero-title {
+  animation: fadeInUp 0.8s ease 0.3s both;
+}
+
+.hero-subtitle {
+  animation: fadeInUp 0.8s ease 0.5s both;
+}
+
+.hero-description {
+  animation: fadeInUp 0.8s ease 0.6s both;
+}
+
+.hero-cta {
+  animation: fadeInUp 0.8s ease 0.7s both;
+}
+
+.hero-scroll {
+  animation: float 2s ease-in-out infinite;
+}
+
+/* Hero particles — scattered ambient background elements */
+.hero-particle {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.hero-particle:nth-child(1) {
+  top: 15%;
+  left: 10%;
+  opacity: 0.3;
+  animation: float 4s ease-in-out infinite;
+}
+.hero-particle:nth-child(2) {
+  top: 25%;
+  left: 80%;
+  opacity: 0.2;
+  animation: float 5s ease-in-out infinite;
+}
+.hero-particle:nth-child(3) {
+  top: 55%;
+  left: 25%;
+  opacity: 0.4;
+  animation: float 3s ease-in-out infinite;
+}
+.hero-particle:nth-child(4) {
+  top: 70%;
+  left: 65%;
+  opacity: 0.25;
+  animation: float 6s ease-in-out infinite;
+}
+.hero-particle:nth-child(5) {
+  top: 40%;
+  left: 50%;
+  opacity: 0.5;
+  animation: float 7s ease-in-out infinite;
+}
+.hero-particle:nth-child(6) {
+  top: 85%;
+  left: 35%;
+  opacity: 0.35;
+  animation: float 5.5s ease-in-out infinite;
+}
+
+
+/* ────────────────────────────────────────────────────────────
+   5. CARD HOVER TRANSITIONS
+   ──────────────────────────────────────────────────────────── */
+
+.card {
+  transition: transform var(--transition-base),
+              box-shadow var(--transition-base),
+              border-color var(--transition-base);
+  will-change: transform;
+  backface-visibility: hidden;
+}
+.card:hover {
+  transform: translateY(-4px) translateZ(0);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-border-hover);
+}
+
+.path-card {
+  transition: transform var(--transition-base),
+              box-shadow var(--transition-base),
+              border-color var(--transition-base);
+  will-change: transform;
+  backface-visibility: hidden;
+}
+.path-card:hover {
+  transform: translateY(-4px) translateZ(0);
+  box-shadow: var(--shadow-lg), var(--shadow-glow-primary);
+  border-color: var(--color-border-hover);
+}
+
+
+/* ────────────────────────────────────────────────────────────
+   6. BUTTON HOVER
+   ──────────────────────────────────────────────────────────── */
+
+.btn {
+  transition: all var(--transition-base);
+}
+
+.btn--primary:hover {
+  transform: translateY(-2px);
+}
+
+
+/* ────────────────────────────────────────────────────────────
+   7. STAT COUNTER ANIMATION
+   ──────────────────────────────────────────────────────────── */
+
+.stat-item.is-visible .stat-number {
+  animation: countUp 0.6s ease forwards;
+}
+
+.stat-item:nth-child(1) .stat-number {
+  animation-delay: 0s;
+}
+.stat-item:nth-child(2) .stat-number {
+  animation-delay: 0.15s;
+}
+.stat-item:nth-child(3) .stat-number {
+  animation-delay: 0.3s;
+}
+.stat-item:nth-child(4) .stat-number {
+  animation-delay: 0.45s;
+}
+
+
+/* ────────────────────────────────────────────────────────────
+   8. NAV LINK HOVER
+   ──────────────────────────────────────────────────────────── */
+
+.nav-link {
+  transition: color var(--transition-fast),
+              background var(--transition-fast);
+}
+
+
+/* ────────────────────────────────────────────────────────────
+   9. TAB TRANSITIONS
+   ──────────────────────────────────────────────────────────── */
+
+.tab-btn {
+  transition: color var(--transition-fast),
+              border-color var(--transition-fast);
+}
+
+.tab-panel {
+  animation: fadeIn 0.3s ease;
+}
+
+
+/* ────────────────────────────────────────────────────────────
+   10. LOADING SHIMMER
+   ──────────────────────────────────────────────────────────── */
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent 25%,
+    rgba(255, 255, 255, 0.05) 50%,
+    transparent 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+
+/* ────────────────────────────────────────────────────────────
+   11. REDUCED MOTION
+   Respect user preferences — collapse all animations to near-zero.
+   ──────────────────────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

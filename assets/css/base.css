@@ -1,1 +1,547 @@
-/* Maths2Models | base.css | TODO */
+/* ============================================================
+   Maths2Models — base.css
+   Global reset, body, typography, scrollbar, utility classes
+   
+   DEPENDS ON: tokens.css (must be loaded before this file)
+   LOAD ORDER in HTML: tokens.css → base.css → components.css
+   ============================================================ */
+
+
+/* ── GOOGLE FONTS ───────────────────────────────────────────
+   Inter      → clean sans-serif for UI text
+   JetBrains  → monospace for code blocks
+   ─────────────────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+
+/* ── BOX SIZING RESET ───────────────────────────────────────
+   Makes width/height include padding and border.
+   Without this, adding padding breaks layouts.
+   ─────────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+/* ── ROOT / BODY ────────────────────────────────────────────
+   Sets the global background, font, and text color
+   using tokens — never hardcoded values here
+   ─────────────────────────────────────────────────────────── */
+html {
+  font-size: 16px;
+  /* base for all rem values         */
+  scroll-behavior: smooth;
+  /* smooth anchor scrolling         */
+  -webkit-text-size-adjust: 100%;
+  /* prevent iOS font scaling        */
+  text-rendering: optimizeLegibility;
+  /* sharper text on all browsers    */
+  -webkit-font-smoothing: antialiased;
+  /* smoother fonts on macOS/Chrome  */
+  -moz-osx-font-smoothing: grayscale;
+  /* smoother fonts on Firefox/macOS */
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-normal);
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-base);
+  min-height: 100vh;
+  overflow-x: clip;
+  /* prevent horizontal scroll without breaking sticky */
+}
+
+
+/* ── CUSTOM SCROLLBAR ───────────────────────────────────────
+   Styled to match the dark theme
+   Works on Chrome, Edge, Safari
+   Firefox uses scrollbar-color property
+   ─────────────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-base);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-bg-elevated);
+  border-radius: var(--radius-full);
+  border: 2px solid var(--color-bg-base);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary);
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-bg-elevated) var(--color-bg-base);
+}
+
+
+/* ── TEXT SELECTION ─────────────────────────────────────────
+   Color shown when user highlights text
+   ─────────────────────────────────────────────────────────── */
+::selection {
+  background-color: rgba(37, 99, 235, 0.35);
+  color: var(--color-text-primary);
+}
+
+::-moz-selection {
+  background-color: rgba(37, 99, 235, 0.35);
+  color: var(--color-text-primary);
+}
+
+
+/* ── HEADINGS ───────────────────────────────────────────────
+   h1 → h6 with tight line-height for display text
+   ─────────────────────────────────────────────────────────── */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-sans);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-tight);
+  color: var(--color-text-primary);
+}
+
+h1 {
+  font-size: var(--font-size-4xl);
+}
+
+h2 {
+  font-size: var(--font-size-3xl);
+}
+
+h3 {
+  font-size: var(--font-size-2xl);
+}
+
+h4 {
+  font-size: var(--font-size-xl);
+}
+
+h5 {
+  font-size: var(--font-size-lg);
+}
+
+h6 {
+  font-size: var(--font-size-md);
+}
+
+
+/* ── PARAGRAPHS ─────────────────────────────────────────────*/
+p {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text-secondary);
+  max-width: 68ch;
+  /* optimal reading line length     */
+}
+
+
+/* ── LINKS ──────────────────────────────────────────────────
+   Base anchor style — components override as needed
+   ─────────────────────────────────────────────────────────── */
+a {
+  color: var(--color-secondary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-primary);
+}
+
+a:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+
+/* ── LISTS ──────────────────────────────────────────────────
+   Remove default list styling globally
+   Re-apply where needed with utility classes
+   ─────────────────────────────────────────────────────────── */
+ul,
+ol {
+  list-style: none;
+}
+
+
+/* ── IMAGES & MEDIA ─────────────────────────────────────────
+   Responsive by default — never overflow their container
+   ─────────────────────────────────────────────────────────── */
+img,
+video,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+
+/* ── BUTTONS RESET ──────────────────────────────────────────
+   Remove all browser button defaults globally
+   Actual button styles live in components.css
+   ─────────────────────────────────────────────────────────── */
+button {
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+button:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+
+/* ── INPUTS RESET ───────────────────────────────────────────*/
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  border: none;
+  outline: none;
+  background: none;
+}
+
+
+/* ─�� CODE & PRE ─────────────────────────────────────────────
+   Inline code and code blocks
+   ─────────────────────────────────────────────────────────── */
+code {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  background-color: rgba(37, 99, 235, 0.12);
+  color: var(--color-secondary);
+  padding: 0.15em 0.4em;
+  border-radius: var(--radius-sm);
+}
+
+pre {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-sm);
+  background-color: var(--color-bg-surface);
+  color: var(--color-text-primary);
+  padding: var(--space-6);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  overflow-x: auto;
+  line-height: var(--line-height-relaxed);
+}
+
+pre code {
+  background: none;
+  color: inherit;
+  padding: 0;
+  font-size: inherit;
+}
+
+
+/* ── HORIZONTAL RULE ────────────────────────────────────────*/
+hr {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: var(--space-8) 0;
+}
+
+
+/* ── FOCUS OUTLINE ──────────────────────────────────────────
+   Removes default ugly outline, adds clean custom one
+   Only shows on keyboard navigation (not mouse click)
+   ─────────────────────────────────────────────────────────── */
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 3px;
+}
+
+
+/* ============================================================
+   UTILITY CLASSES
+   Small reusable helpers used across all pages
+   ============================================================ */
+
+/* ── Layout container ───────────────────────────────────────
+   Centred, max-width, horizontal padding
+   Usage: <div class="container">...</div>
+   ─────────────────────────────────────────────────────────── */
+.container {
+  width: 100%;
+  max-width: var(--container-xl);
+  margin: 0 auto;
+  padding: 0 var(--container-pad);
+}
+
+.container--narrow {
+  max-width: var(--container-md);
+}
+
+.container--wide {
+  max-width: var(--container-2xl);
+}
+
+
+/* ── Gradient text ──────────────────────────────────────────
+   Usage: <span class="gradient-text">Maths2Models</span>
+   ─────────────────────────────────────────────────────────── */
+.gradient-text {
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+
+/* ── Screen reader only ─────────────────────────────────────
+   Visually hidden but accessible to screen readers
+   Usage: <span class="sr-only">Close menu</span>
+   ─────────────────────────────────────────────────────────── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+
+/* ── Section spacing ────────────────────────────────────────
+   Consistent vertical rhythm between page sections
+   ─────────────────────────────────────────────────────────── */
+.section {
+  padding: var(--space-20) 0;
+}
+
+.section--sm {
+  padding: var(--space-12) 0;
+}
+
+.section--lg {
+  padding: var(--space-32) 0;
+}
+
+
+/* ── Section header ─────────────────────────────────────────
+   Reusable heading block above content grids
+   ─────────────────────────────────────────────────────────── */
+.section-header {
+  text-align: center;
+  margin-bottom: var(--space-12);
+}
+
+.section-label {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--letter-spacing-widest);
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  margin-bottom: var(--space-3);
+}
+
+.section-title {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-extrabold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-4);
+}
+
+.section-subtitle {
+  font-size: var(--font-size-md);
+  color: var(--color-text-secondary);
+  max-width: 56ch;
+  margin: 0 auto;
+}
+
+
+/* ── Status badges ──────────────────────────────────────────
+   Used on course cards, blog posts, projects
+   ─────────────────────────────────────────────────────────── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--letter-spacing-wide);
+  text-transform: uppercase;
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+
+.badge--active {
+  background: rgba(16, 185, 129, 0.12);
+  color: var(--color-success);
+  border-color: rgba(16, 185, 129, 0.25);
+}
+
+.badge--coming-soon {
+  background: rgba(100, 116, 139, 0.12);
+  color: var(--color-coming-soon);
+  border-color: rgba(100, 116, 139, 0.25);
+}
+
+.badge--in-progress {
+  background: rgba(245, 158, 11, 0.12);
+  color: var(--color-warning);
+  border-color: rgba(245, 158, 11, 0.25);
+}
+
+.badge--primary {
+  background: rgba(37, 99, 235, 0.12);
+  color: var(--color-primary);
+  border-color: rgba(37, 99, 235, 0.25);
+}
+
+.badge--secondary {
+  background: rgba(6, 182, 212, 0.12);
+  color: var(--color-secondary);
+  border-color: rgba(6, 182, 212, 0.25);
+}
+
+.badge--accent {
+  background: rgba(124, 58, 237, 0.12);
+  color: var(--color-accent);
+  border-color: rgba(124, 58, 237, 0.25);
+}
+
+
+/* ── Text utilities ─────────────────────────────────────────*/
+.text-muted {
+  color: var(--color-text-muted);
+}
+
+.text-secondary {
+  color: var(--color-text-secondary);
+}
+
+.text-primary {
+  color: var(--color-text-primary);
+}
+
+.text-accent {
+  color: var(--color-secondary);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-sm {
+  font-size: var(--font-size-sm);
+}
+
+.text-xs {
+  font-size: var(--font-size-xs);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+
+/* ── Spacing utilities ──────────────────────────────────────*/
+.mt-auto {
+  margin-top: auto;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.gap-2 {
+  gap: var(--space-2);
+}
+
+.gap-4 {
+  gap: var(--space-4);
+}
+
+
+/* ── RESPONSIVE TYPOGRAPHY ──────────────────────────────────
+   Scale down large headings on smaller screens
+   ─────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  h1 {
+    font-size: var(--font-size-3xl);
+  }
+
+  h2 {
+    font-size: var(--font-size-2xl);
+  }
+
+  h3 {
+    font-size: var(--font-size-xl);
+  }
+
+  .section-title {
+    font-size: var(--font-size-2xl);
+  }
+
+  .container {
+    padding: 0 var(--space-4);
+  }
+
+  .section {
+    padding: var(--space-12) 0;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: var(--font-size-2xl);
+  }
+
+  h2 {
+    font-size: var(--font-size-xl);
+  }
+
+  .section-title {
+    font-size: var(--font-size-xl);
+  }
+}
+
+/* ── Component Containers ──────────────────────────────────── */
+#navbar-container,
+#footer-container {
+  display: contents;
+}
