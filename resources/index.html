@@ -1,1 +1,165 @@
-<!-- Maths2Models | resources page | TODO -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Resources — Maths2Models. Downloadable PDFs, notes, and reference materials.">
+  <meta property="og:title" content="Resources | Maths2Models">
+  <meta property="og:description" content="Downloadable PDFs, notes, and reference materials for IITM BS Data Science.">
+  <meta property="og:image" content="/assets/img/og.png">
+  <title>Resources | Maths2Models</title>
+  <link rel="icon" href="/assets/img/logo.png" type="image/png">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css?v=55">
+  <link rel="stylesheet" href="/assets/css/components.css?v=55">
+  <link rel="stylesheet" href="/assets/css/animations.css">
+  <script src="/assets/js/theme.js"></script>
+</head>
+<body>
+  <div id="navbar-container"></div>
+  <div id="breadcrumb-container"></div>
+
+  <main id="main-content">
+    <div class="section">
+      <div class="container">
+        <div class="shimmer" style="height:200px;border-radius:var(--radius-lg)"></div>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-container"></div>
+
+  <script src="/assets/js/utils.js?v=55"></script>
+  <script src="/assets/js/router.js"></script>
+  <script src="/assets/js/render.js?v=55"></script>
+  <script src="/assets/js/core.js?v=55"></script>
+  <script>
+    (async function () {
+      if (await M2M.checkMaintenance()) return;
+      const data = await M2M.fetchJSON('/data/resources-index.json');
+      const container = document.getElementById('main-content');
+
+      M2M.setBreadcrumb([
+        { label: 'Home', href: '/' },
+        { label: 'Resources' }
+      ]);
+
+      async function renderListing(data, container) {
+        let resources = data.resources || [];
+        
+        // Filter out items explicitly marked as invisible
+        resources = resources.filter(r => r.visibility !== false);
+
+        // Filter out categories that are explicitly disabled in categories_status
+        if (data.categories_status) {
+          resources = resources.filter(r => data.categories_status[r.category] !== false);
+        }
+
+        const categories = ['All Categories'].concat(
+          (data.categories_order || []).filter(cat => !data.categories_status || data.categories_status[cat] !== false)
+        );
+        
+        const types = ['All Types', 'PDF', 'Link', 'Tool', 'Dataset'];
+
+        if (resources.length === 0) {
+          container.innerHTML = `
+            <div class="section">
+              <div class="container">
+                ${M2M.render.pageHeader('Resources', 'Downloadable PDFs, notes, and reference materials.')}
+                ${M2M.render.comingSoon(3, 'Resources are coming soon.')}
+              </div>
+            </div>
+          `;
+          return;
+        }
+
+        // Fetch detailed data concurrently
+        const fetchPromises = resources.map(r => M2M.fetchJSON(`/data/resources/${r.id}.json`));
+        const detailedJsons = await Promise.all(fetchPromises);
+        
+        // Merge the heavy detailed data back into the resource object
+        resources.forEach((r, idx) => {
+          const detail = detailedJsons[idx];
+          if (detail) {
+            r.download_url = detail.download_url;
+            r.external_url = detail.external_url;
+            r.tags = detail.tags;
+          }
+          // Enforce "coming-soon" blocks
+          if (r.status === 'coming-soon') {
+             r.download_url = null;
+             r.external_url = null;
+          }
+        });
+
+        container.innerHTML = `
+          <div class="section">
+            <div class="container">
+              ${M2M.render.pageHeader('Resources', 'Downloadable PDFs, notes, and reference materials.')}
+              <div style="display:flex;gap:var(--space-4);flex-wrap:wrap;justify-content:center;align-items:center;margin-bottom:var(--space-8)">
+                <div class="filter-bar" id="category-filters" style="margin-bottom:0">
+                  ${categories.map(cat => '<button class="filter-btn' + (cat === 'All Categories' ? ' active' : '') + '" data-filter="' + cat + '">' + cat + '</button>').join('')}
+                </div>
+                <div style="color:var(--color-border); font-size:1.5rem; user-select:none;">|</div>
+                <div class="filter-bar" id="type-filters" style="margin-bottom:0">
+                  ${types.map(t => '<button class="filter-btn' + (t === 'All Types' ? ' active' : '') + '" data-filter="' + t + '">' + t + '</button>').join('')}
+                </div>
+              </div>
+              <div class="table-wrapper">
+                <table class="data-table" id="resources-table">
+                  <thead><tr><th>Title</th><th>Category</th><th>Type</th><th>Access</th></tr></thead>
+                  <tbody id="resources-tbody">
+                    ${resources.map(r => M2M.render.resourceRow(r)).join('')}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        `;
+        let activeCategory = 'All Categories';
+        let activeType = 'All Types';
+
+        function filterResources() {
+          const filtered = resources.filter(r => {
+            const categoryMatch = activeCategory === 'All Categories' || (r.category && r.category.toLowerCase() === activeCategory.toLowerCase());
+            const typeMatch = activeType === 'All Types' || (r.type && r.type.toLowerCase() === activeType.toLowerCase());
+            return categoryMatch && typeMatch;
+          });
+          document.getElementById('resources-tbody').innerHTML = filtered.length > 0
+            ? filtered.map(r => M2M.render.resourceRow(r)).join('')
+            : '<tr><td colspan="5" style="text-align:center;padding:var(--space-12);color:var(--color-text-muted)">No resources match your filters.</td></tr>';
+        }
+
+        document.querySelectorAll('#category-filters .filter-btn').forEach(btn => {
+          btn.addEventListener('click', function() {
+            document.querySelectorAll('#category-filters .filter-btn').forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            activeCategory = this.dataset.filter;
+            filterResources();
+          });
+        });
+
+        document.querySelectorAll('#type-filters .filter-btn').forEach(btn => {
+          btn.addEventListener('click', function() {
+            document.querySelectorAll('#type-filters .filter-btn').forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            activeType = this.dataset.filter;
+            filterResources();
+          });
+        });
+
+        requestAnimationFrame(() => M2M.initScrollEffects());
+      }
+
+      await M2M.router.renderPage({
+        jsonPath: '/data/resources-index.json',
+        useSplitJson: false,
+        itemsKey: 'resources',
+        renderListing: renderListing,
+        breadcrumbSection: 'Resources',
+        sectionHref: '/resources/'
+      });
+    })();
+  </script>
+</body>
+</html>
