@@ -16,13 +16,13 @@
   "maintenance": {
     "global": false,
     "home": false,
-    "courses": false,
-    "projects": false,
-    "blog": false,
-    "resources": false,
+    "courses": true,
+    "projects": true,
+    "blog": true,
+    "resources": true,
     "calculator": false
   },
-  "global_announcement": "New Data Science courses dropping next week!",
+  "global_announcement": "Something Coming Soon...",
   "feature_flags": {
     "show_pyqs_tab": true,
     "enable_dark_mode_toggle": true
