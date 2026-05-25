@@ -1,0 +1,24 @@
+{
+  "categories_order": [
+    "IITM BS",
+    "Data Science",
+    "General"
+  ],
+  "categories_status": {
+    "IITM BS": true,
+    "Data Science": true,
+    "General": true
+  },
+  "description": "Maths2Models Projects",
+  "projects": [
+    {
+      "id": "student-dashboard-v1",
+      "title": "Maths2Models Student Dashboard",
+      "description": "An interactive dashboard for tracking course progress.",
+      "category": "Data Science",
+      "status": "active",
+      "visibility": true,
+      "thumbnail": ""
+    }
+  ]
+}

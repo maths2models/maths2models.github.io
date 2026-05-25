@@ -1,0 +1,111 @@
+{
+  "id": "BSMA1002",
+  "topics": [
+    {
+      "week": 1,
+      "title": "Types of Data",
+      "subtopics": []
+    },
+    {
+      "week": 2,
+      "title": "Descriptive Statistics",
+      "subtopics": []
+    },
+    {
+      "week": 3,
+      "title": "Inferential Statistics",
+      "subtopics": []
+    },
+    {
+      "week": 4,
+      "title": "Categorical Data Analysis",
+      "subtopics": []
+    },
+    {
+      "week": 5,
+      "title": "Numerical Data Analysis",
+      "subtopics": []
+    },
+    {
+      "week": 6,
+      "title": "Measures of Central Tendency",
+      "subtopics": []
+    },
+    {
+      "week": 7,
+      "title": "Measures of Dispersion",
+      "subtopics": []
+    },
+    {
+      "week": 8,
+      "title": "Correlation and Association",
+      "subtopics": []
+    },
+    {
+      "week": 9,
+      "title": "Counting Principles",
+      "subtopics": []
+    },
+    {
+      "week": 10,
+      "title": "Permutations and Combinations",
+      "subtopics": []
+    },
+    {
+      "week": 11,
+      "title": "Probability Theory",
+      "subtopics": []
+    },
+    {
+      "week": 12,
+      "title": "Conditional Probability",
+      "subtopics": []
+    },
+    {
+      "week": 13,
+      "title": "Random Variables",
+      "subtopics": []
+    },
+    {
+      "week": 14,
+      "title": "Probability Distributions",
+      "subtopics": []
+    },
+    {
+      "week": 15,
+      "title": "Expectation and Variance",
+      "subtopics": []
+    }
+  ],
+  "resources": {
+    "videos": {
+      "enabled": true,
+      "items": [
+        {
+          "type": "video",
+          "title": "Week 1",
+          "enabled": true,
+          "youtube_id": "dQw4w9WgXcQ"
+        }
+      ],
+      "playlist_url": ""
+    },
+    "notes": {
+      "enabled": false,
+      "items": []
+    },
+    "practice": {
+      "enabled": false,
+      "items": []
+    },
+    "pyqs": {
+      "enabled": false,
+      "items": []
+    },
+    "codes": {
+      "enabled": false,
+      "items": [],
+      "github_repo": ""
+    }
+  }
+}

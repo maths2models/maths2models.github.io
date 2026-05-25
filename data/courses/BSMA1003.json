@@ -1,0 +1,111 @@
+{
+  "id": "BSMA1003",
+  "topics": [
+    {
+      "week": 1,
+      "title": "Vectors and Matrices",
+      "subtopics": []
+    },
+    {
+      "week": 2,
+      "title": "Systems of Linear Equations",
+      "subtopics": []
+    },
+    {
+      "week": 3,
+      "title": "Determinants",
+      "subtopics": []
+    },
+    {
+      "week": 4,
+      "title": "Gaussian Elimination",
+      "subtopics": []
+    },
+    {
+      "week": 5,
+      "title": "Vector Spaces",
+      "subtopics": []
+    },
+    {
+      "week": 6,
+      "title": "Linear Independence",
+      "subtopics": []
+    },
+    {
+      "week": 7,
+      "title": "Basis and Dimension",
+      "subtopics": []
+    },
+    {
+      "week": 8,
+      "title": "Linear Transformations",
+      "subtopics": []
+    },
+    {
+      "week": 9,
+      "title": "Kernel and Image",
+      "subtopics": []
+    },
+    {
+      "week": 10,
+      "title": "Inner Product Spaces",
+      "subtopics": []
+    },
+    {
+      "week": 11,
+      "title": "Orthogonality",
+      "subtopics": []
+    },
+    {
+      "week": 12,
+      "title": "Gram Schmidt Process",
+      "subtopics": []
+    },
+    {
+      "week": 13,
+      "title": "Multivariable Functions",
+      "subtopics": []
+    },
+    {
+      "week": 14,
+      "title": "Partial Derivatives",
+      "subtopics": []
+    },
+    {
+      "week": 15,
+      "title": "Hessian Matrix",
+      "subtopics": []
+    }
+  ],
+  "resources": {
+    "videos": {
+      "enabled": false,
+      "items": [
+        {
+          "type": "video",
+          "title": "Week 1",
+          "enabled": true,
+          "youtube_id": "dQw4w9WgXcQ"
+        }
+      ],
+      "playlist_url": ""
+    },
+    "notes": {
+      "enabled": false,
+      "items": []
+    },
+    "practice": {
+      "enabled": false,
+      "items": []
+    },
+    "pyqs": {
+      "enabled": false,
+      "items": []
+    },
+    "codes": {
+      "enabled": false,
+      "items": [],
+      "github_repo": ""
+    }
+  }
+}

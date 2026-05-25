@@ -1,0 +1,111 @@
+{
+  "id": "BSCS2002",
+  "topics": [
+    {
+      "week": 1,
+      "title": "Data Structures",
+      "subtopics": []
+    },
+    {
+      "week": 2,
+      "title": "Algorithms",
+      "subtopics": []
+    },
+    {
+      "week": 3,
+      "title": "Arrays",
+      "subtopics": []
+    },
+    {
+      "week": 4,
+      "title": "Linked Lists",
+      "subtopics": []
+    },
+    {
+      "week": 5,
+      "title": "Stacks and Queues",
+      "subtopics": []
+    },
+    {
+      "week": 6,
+      "title": "Trees",
+      "subtopics": []
+    },
+    {
+      "week": 7,
+      "title": "Graphs",
+      "subtopics": []
+    },
+    {
+      "week": 8,
+      "title": "Sorting Algorithms",
+      "subtopics": []
+    },
+    {
+      "week": 9,
+      "title": "Searching Algorithms",
+      "subtopics": []
+    },
+    {
+      "week": 10,
+      "title": "Recursion",
+      "subtopics": []
+    },
+    {
+      "week": 11,
+      "title": "Dynamic Programming",
+      "subtopics": []
+    },
+    {
+      "week": 12,
+      "title": "Greedy Algorithms",
+      "subtopics": []
+    },
+    {
+      "week": 13,
+      "title": "DFS and BFS",
+      "subtopics": []
+    },
+    {
+      "week": 14,
+      "title": "Complexity Analysis",
+      "subtopics": []
+    },
+    {
+      "week": 15,
+      "title": "Problem Solving",
+      "subtopics": []
+    }
+  ],
+  "resources": {
+    "videos": {
+      "enabled": false,
+      "items": [
+        {
+          "type": "video",
+          "title": "Week 1",
+          "enabled": true,
+          "youtube_id": "dQw4w9WgXcQ"
+        }
+      ],
+      "playlist_url": ""
+    },
+    "notes": {
+      "enabled": false,
+      "items": []
+    },
+    "practice": {
+      "enabled": false,
+      "items": []
+    },
+    "pyqs": {
+      "enabled": false,
+      "items": []
+    },
+    "codes": {
+      "enabled": false,
+      "items": [],
+      "github_repo": ""
+    }
+  }
+}

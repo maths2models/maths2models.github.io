@@ -1,0 +1,37 @@
+{
+  "categories_order": [
+    "IITM BS",
+    "Data Science",
+    "General"
+  ],
+  "categories_status": {
+    "IITM BS": true,
+    "Data Science": true,
+    "General": true
+  },
+  "description": "Maths2Models Official Blog",
+  "posts": [
+    {
+      "id": "how-to-study-calculus",
+      "title": "How to Study Calculus for Data Science",
+      "description": "A comprehensive guide on approaching calculus for the foundation level.",
+      "category": "IITM BS",
+      "author": "Maths2Models Team",
+      "published_date": "2024-05-20",
+      "status": "active",
+      "visibility": true,
+      "thumbnail": ""
+    },
+    {
+      "id": "general-ds-tips",
+      "title": "Top 5 Data Science Tips",
+      "description": "General tips for aspiring data scientists.",
+      "category": "General",
+      "author": "Maths2Models Team",
+      "published_date": "2024-05-22",
+      "status": "coming-soon",
+      "visibility": true,
+      "thumbnail": ""
+    }
+  ]
+}

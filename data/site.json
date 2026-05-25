@@ -7,12 +7,25 @@
   "telegram": "",
   "nav": [
     { "label": "Home",       "href": "/" },
-    { "label": "Foundation", "href": "/foundation/" },
-    { "label": "Diploma",    "href": "/diploma/" },
-    { "label": "Degree",     "href": "/degree/" },
+    { "label": "Courses",    "href": "/courses/" },
     { "label": "Projects",   "href": "/projects/" },
     { "label": "Blog",       "href": "/blog/" },
     { "label": "Resources",  "href": "/resources/" },
     { "label": "About",      "href": "/about/" }
-  ]
+  ],
+  "maintenance": {
+    "global": false,
+    "home": false,
+    "courses": false,
+    "projects": false,
+    "blog": false,
+    "resources": false,
+    "calculator": false
+  },
+  "global_announcement": "New Data Science courses dropping next week!",
+  "feature_flags": {
+    "show_pyqs_tab": true,
+    "enable_dark_mode_toggle": true
+  },
+  "disabled_categories": ["Drafts", "Archived"]
 }

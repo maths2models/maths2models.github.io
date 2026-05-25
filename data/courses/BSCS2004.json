@@ -1,0 +1,111 @@
+{
+  "id": "BSCS2004",
+  "topics": [
+    {
+      "week": 1,
+      "title": "Machine Learning Basics",
+      "subtopics": []
+    },
+    {
+      "week": 2,
+      "title": "Linear Regression",
+      "subtopics": []
+    },
+    {
+      "week": 3,
+      "title": "Classification",
+      "subtopics": []
+    },
+    {
+      "week": 4,
+      "title": "Feature Engineering",
+      "subtopics": []
+    },
+    {
+      "week": 5,
+      "title": "Model Evaluation",
+      "subtopics": []
+    },
+    {
+      "week": 6,
+      "title": "Optimization",
+      "subtopics": []
+    },
+    {
+      "week": 7,
+      "title": "Gradient Descent",
+      "subtopics": []
+    },
+    {
+      "week": 8,
+      "title": "Probability",
+      "subtopics": []
+    },
+    {
+      "week": 9,
+      "title": "Statistics",
+      "subtopics": []
+    },
+    {
+      "week": 10,
+      "title": "Supervised Learning",
+      "subtopics": []
+    },
+    {
+      "week": 11,
+      "title": "Unsupervised Learning",
+      "subtopics": []
+    },
+    {
+      "week": 12,
+      "title": "Overfitting",
+      "subtopics": []
+    },
+    {
+      "week": 13,
+      "title": "Bias Variance Tradeoff",
+      "subtopics": []
+    },
+    {
+      "week": 14,
+      "title": "Scikit Learn",
+      "subtopics": []
+    },
+    {
+      "week": 15,
+      "title": "Data Preprocessing",
+      "subtopics": []
+    }
+  ],
+  "resources": {
+    "videos": {
+      "enabled": false,
+      "items": [
+        {
+          "type": "video",
+          "title": "Week 1",
+          "enabled": true,
+          "youtube_id": "dQw4w9WgXcQ"
+        }
+      ],
+      "playlist_url": ""
+    },
+    "notes": {
+      "enabled": false,
+      "items": []
+    },
+    "practice": {
+      "enabled": false,
+      "items": []
+    },
+    "pyqs": {
+      "enabled": false,
+      "items": []
+    },
+    "codes": {
+      "enabled": false,
+      "items": [],
+      "github_repo": ""
+    }
+  }
+}

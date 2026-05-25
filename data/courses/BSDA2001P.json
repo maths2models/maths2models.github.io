@@ -1,0 +1,112 @@
+{
+  "id": "BSDA2001P",
+  "track": 2,
+  "topics": [
+    {
+      "week": 1,
+      "title": "Deep Learning Projects",
+      "subtopics": []
+    },
+    {
+      "week": 2,
+      "title": "Generative AI Applications",
+      "subtopics": []
+    },
+    {
+      "week": 3,
+      "title": "LLM Applications",
+      "subtopics": []
+    },
+    {
+      "week": 4,
+      "title": "Transformer Models",
+      "subtopics": []
+    },
+    {
+      "week": 5,
+      "title": "Computer Vision Projects",
+      "subtopics": []
+    },
+    {
+      "week": 6,
+      "title": "NLP Projects",
+      "subtopics": []
+    },
+    {
+      "week": 7,
+      "title": "Image Generation",
+      "subtopics": []
+    },
+    {
+      "week": 8,
+      "title": "Text Generation",
+      "subtopics": []
+    },
+    {
+      "week": 9,
+      "title": "Model Fine Tuning",
+      "subtopics": []
+    },
+    {
+      "week": 10,
+      "title": "AI Deployment",
+      "subtopics": []
+    },
+    {
+      "week": 11,
+      "title": "Prompt Engineering",
+      "subtopics": []
+    },
+    {
+      "week": 12,
+      "title": "PyTorch",
+      "subtopics": []
+    },
+    {
+      "week": 13,
+      "title": "TensorFlow",
+      "subtopics": []
+    },
+    {
+      "week": 14,
+      "title": "Diffusion Models",
+      "subtopics": []
+    },
+    {
+      "week": 15,
+      "title": "End to End AI Systems",
+      "subtopics": []
+    }
+  ],
+  "resources": {
+    "videos": {
+      "enabled": false,
+      "items": [
+        {
+          "type": "video",
+          "title": "Week 1",
+          "enabled": true,
+          "youtube_id": "dQw4w9WgXcQ"
+        }
+      ],
+      "playlist_url": ""
+    },
+    "notes": {
+      "enabled": false,
+      "items": []
+    },
+    "practice": {
+      "enabled": false,
+      "items": []
+    },
+    "pyqs": {
+      "enabled": false,
+      "items": []
+    },
+    "codes": {
+      "enabled": false,
+      "items": [],
+      "github_repo": ""
+    }
+  }
+}

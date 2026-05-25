@@ -1,0 +1,129 @@
+{
+  "id": "BSMA1001",
+  "topics": [
+    {
+      "week": 1,
+      "title": "Set Theory",
+      "subtopics": [
+        "Number Systems",
+        "Sets and Operations",
+        "Relations",
+        "Functions"
+      ]
+    },
+    {
+      "week": 2,
+      "title": "Coordinate Geometry",
+      "subtopics": [
+        "Rectangular Coordinate System",
+        "Straight Lines",
+        "Slope",
+        "Equation of Line"
+      ]
+    },
+    {
+      "week": 3,
+      "title": "Quadratic Functions",
+      "subtopics": [
+        "Quadratic Equations",
+        "Minima and Maxima",
+        "Vertex",
+        "Graphs"
+      ]
+    },
+    {
+      "week": 4,
+      "title": "Polynomial Functions",
+      "subtopics": [
+        "Polynomial Equations",
+        "Roots",
+        "Factorization"
+      ]
+    },
+    {
+      "week": 5,
+      "title": "Exponential and Logarithmic Functions",
+      "subtopics": [
+        "Exponential Growth",
+        "Logarithms",
+        "Applications"
+      ]
+    },
+    {
+      "week": 6,
+      "title": "Sequences and Limits",
+      "subtopics": [
+        "Arithmetic Sequences",
+        "Geometric Sequences",
+        "Limits"
+      ]
+    },
+    {
+      "week": 7,
+      "title": "Differential Calculus",
+      "subtopics": [
+        "Derivatives",
+        "Chain Rule",
+        "Applications"
+      ]
+    },
+    {
+      "week": 8,
+      "title": "Integral Calculus",
+      "subtopics": [
+        "Integration",
+        "Definite Integrals",
+        "Area Under Curves"
+      ]
+    },
+    {
+      "week": 9,
+      "title": "Graph Theory",
+      "subtopics": [
+        "Graphs",
+        "Trees",
+        "Shortest Path Algorithms"
+      ]
+    },
+    {
+      "week": 10,
+      "title": "Discrete Mathematics",
+      "subtopics": [
+        "Logic",
+        "Combinatorics",
+        "Discrete Structures"
+      ]
+    }
+  ],
+  "resources": {
+    "videos": {
+      "enabled": true,
+      "items": [
+        {
+          "type": "video",
+          "title": "Week 1",
+          "enabled": true,
+          "youtube_id": "rV3HJ4LEZ7k"
+        }
+      ],
+      "playlist_url": ""
+    },
+    "notes": {
+      "enabled": false,
+      "items": []
+    },
+    "practice": {
+      "enabled": false,
+      "items": []
+    },
+    "pyqs": {
+      "enabled": false,
+      "items": []
+    },
+    "codes": {
+      "enabled": false,
+      "items": [],
+      "github_repo": ""
+    }
+  }
+}

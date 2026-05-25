@@ -1,0 +1,25 @@
+{
+  "categories_order": [
+    "IITM BS",
+    "Data Science",
+    "General"
+  ],
+  "categories_status": {
+    "IITM BS": true,
+    "Data Science": true,
+    "General": true
+  },
+  "description": "Maths2Models Resources",
+  "resources": [
+    {
+      "id": "python-cheatsheet",
+      "title": "Python for Data Science Cheatsheet",
+      "description": "A quick reference guide for Pandas, NumPy, and Matplotlib.",
+      "category": "IITM BS",
+      "type": "pdf",
+      "status": "active",
+      "visibility": true,
+      "thumbnail": ""
+    }
+  ]
+}

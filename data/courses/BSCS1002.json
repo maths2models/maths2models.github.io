@@ -1,0 +1,111 @@
+{
+  "id": "BSCS1002",
+  "topics": [
+    {
+      "week": 1,
+      "title": "Python Basics",
+      "subtopics": []
+    },
+    {
+      "week": 2,
+      "title": "Algorithms",
+      "subtopics": []
+    },
+    {
+      "week": 3,
+      "title": "Conditional Statements",
+      "subtopics": []
+    },
+    {
+      "week": 4,
+      "title": "Loops and Iterations",
+      "subtopics": []
+    },
+    {
+      "week": 5,
+      "title": "Ranges",
+      "subtopics": []
+    },
+    {
+      "week": 6,
+      "title": "Lists and Tuples",
+      "subtopics": []
+    },
+    {
+      "week": 7,
+      "title": "Sets and Dictionaries",
+      "subtopics": []
+    },
+    {
+      "week": 8,
+      "title": "String Processing",
+      "subtopics": []
+    },
+    {
+      "week": 9,
+      "title": "Functions and Modules",
+      "subtopics": []
+    },
+    {
+      "week": 10,
+      "title": "File Handling",
+      "subtopics": []
+    },
+    {
+      "week": 11,
+      "title": "Input Output Operations",
+      "subtopics": []
+    },
+    {
+      "week": 12,
+      "title": "Python Collections",
+      "subtopics": []
+    },
+    {
+      "week": 13,
+      "title": "NumPy",
+      "subtopics": []
+    },
+    {
+      "week": 14,
+      "title": "Pandas",
+      "subtopics": []
+    },
+    {
+      "week": 15,
+      "title": "Data Processing",
+      "subtopics": []
+    }
+  ],
+  "resources": {
+    "videos": {
+      "enabled": false,
+      "items": [
+        {
+          "type": "video",
+          "title": "Week 1",
+          "enabled": true,
+          "youtube_id": "dQw4w9WgXcQ"
+        }
+      ],
+      "playlist_url": ""
+    },
+    "notes": {
+      "enabled": false,
+      "items": []
+    },
+    "practice": {
+      "enabled": false,
+      "items": []
+    },
+    "pyqs": {
+      "enabled": false,
+      "items": []
+    },
+    "codes": {
+      "enabled": false,
+      "items": [],
+      "github_repo": ""
+    }
+  }
+}

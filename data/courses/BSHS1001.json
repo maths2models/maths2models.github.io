@@ -1,0 +1,111 @@
+{
+  "id": "BSHS1001",
+  "topics": [
+    {
+      "week": 1,
+      "title": "Phonetics",
+      "subtopics": []
+    },
+    {
+      "week": 2,
+      "title": "Vowel Sounds",
+      "subtopics": []
+    },
+    {
+      "week": 3,
+      "title": "Consonant Sounds",
+      "subtopics": []
+    },
+    {
+      "week": 4,
+      "title": "Parts of Speech",
+      "subtopics": []
+    },
+    {
+      "week": 5,
+      "title": "Sentence Structure",
+      "subtopics": []
+    },
+    {
+      "week": 6,
+      "title": "Phrases and Idioms",
+      "subtopics": []
+    },
+    {
+      "week": 7,
+      "title": "Spoken English",
+      "subtopics": []
+    },
+    {
+      "week": 8,
+      "title": "English Grammar",
+      "subtopics": []
+    },
+    {
+      "week": 9,
+      "title": "Reading Skills",
+      "subtopics": []
+    },
+    {
+      "week": 10,
+      "title": "Listening Skills",
+      "subtopics": []
+    },
+    {
+      "week": 11,
+      "title": "Word Stress",
+      "subtopics": []
+    },
+    {
+      "week": 12,
+      "title": "Syllabification",
+      "subtopics": []
+    },
+    {
+      "week": 13,
+      "title": "Presentation Skills",
+      "subtopics": []
+    },
+    {
+      "week": 14,
+      "title": "Writing Skills",
+      "subtopics": []
+    },
+    {
+      "week": 15,
+      "title": "Professional Communication",
+      "subtopics": []
+    }
+  ],
+  "resources": {
+    "videos": {
+      "enabled": false,
+      "items": [
+        {
+          "type": "video",
+          "title": "Week 1",
+          "enabled": true,
+          "youtube_id": "dQw4w9WgXcQ"
+        }
+      ],
+      "playlist_url": ""
+    },
+    "notes": {
+      "enabled": false,
+      "items": []
+    },
+    "practice": {
+      "enabled": false,
+      "items": []
+    },
+    "pyqs": {
+      "enabled": false,
+      "items": []
+    },
+    "codes": {
+      "enabled": false,
+      "items": [],
+      "github_repo": ""
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "id": "student-dashboard-v1",
+  "links": {
+    "github_url": "#",
+    "live_demo_url": "#",
+    "youtube_id": ""
+  },
+  "tags": [
+    "python",
+    "pandas",
+    "visualization"
+  ]
+}

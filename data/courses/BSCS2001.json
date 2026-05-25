@@ -1,0 +1,111 @@
+{
+  "id": "BSCS2001",
+  "topics": [
+    {
+      "week": 1,
+      "title": "Database Systems",
+      "subtopics": []
+    },
+    {
+      "week": 2,
+      "title": "Relational Databases",
+      "subtopics": []
+    },
+    {
+      "week": 3,
+      "title": "SQL",
+      "subtopics": []
+    },
+    {
+      "week": 4,
+      "title": "ER Modeling",
+      "subtopics": []
+    },
+    {
+      "week": 5,
+      "title": "Normalization",
+      "subtopics": []
+    },
+    {
+      "week": 6,
+      "title": "Transactions",
+      "subtopics": []
+    },
+    {
+      "week": 7,
+      "title": "Joins",
+      "subtopics": []
+    },
+    {
+      "week": 8,
+      "title": "Constraints",
+      "subtopics": []
+    },
+    {
+      "week": 9,
+      "title": "Indexing",
+      "subtopics": []
+    },
+    {
+      "week": 10,
+      "title": "Query Processing",
+      "subtopics": []
+    },
+    {
+      "week": 11,
+      "title": "Database Design",
+      "subtopics": []
+    },
+    {
+      "week": 12,
+      "title": "Concurrency Control",
+      "subtopics": []
+    },
+    {
+      "week": 13,
+      "title": "Database Security",
+      "subtopics": []
+    },
+    {
+      "week": 14,
+      "title": "Stored Procedures",
+      "subtopics": []
+    },
+    {
+      "week": 15,
+      "title": "Data Integrity",
+      "subtopics": []
+    }
+  ],
+  "resources": {
+    "videos": {
+      "enabled": false,
+      "items": [
+        {
+          "type": "video",
+          "title": "Week 1",
+          "enabled": true,
+          "youtube_id": "dQw4w9WgXcQ"
+        }
+      ],
+      "playlist_url": ""
+    },
+    "notes": {
+      "enabled": false,
+      "items": []
+    },
+    "practice": {
+      "enabled": false,
+      "items": []
+    },
+    "pyqs": {
+      "enabled": false,
+      "items": []
+    },
+    "codes": {
+      "enabled": false,
+      "items": [],
+      "github_repo": ""
+    }
+  }
+}

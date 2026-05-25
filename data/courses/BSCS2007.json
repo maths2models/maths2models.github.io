@@ -1,0 +1,111 @@
+{
+  "id": "BSCS2007",
+  "topics": [
+    {
+      "week": 1,
+      "title": "Advanced Machine Learning",
+      "subtopics": []
+    },
+    {
+      "week": 2,
+      "title": "Decision Trees",
+      "subtopics": []
+    },
+    {
+      "week": 3,
+      "title": "Random Forest",
+      "subtopics": []
+    },
+    {
+      "week": 4,
+      "title": "Support Vector Machines",
+      "subtopics": []
+    },
+    {
+      "week": 5,
+      "title": "Clustering",
+      "subtopics": []
+    },
+    {
+      "week": 6,
+      "title": "Dimensionality Reduction",
+      "subtopics": []
+    },
+    {
+      "week": 7,
+      "title": "Ensemble Learning",
+      "subtopics": []
+    },
+    {
+      "week": 8,
+      "title": "Neural Networks",
+      "subtopics": []
+    },
+    {
+      "week": 9,
+      "title": "Hyperparameter Tuning",
+      "subtopics": []
+    },
+    {
+      "week": 10,
+      "title": "Cross Validation",
+      "subtopics": []
+    },
+    {
+      "week": 11,
+      "title": "Classification",
+      "subtopics": []
+    },
+    {
+      "week": 12,
+      "title": "Regression",
+      "subtopics": []
+    },
+    {
+      "week": 13,
+      "title": "Model Optimization",
+      "subtopics": []
+    },
+    {
+      "week": 14,
+      "title": "Feature Selection",
+      "subtopics": []
+    },
+    {
+      "week": 15,
+      "title": "Data Mining",
+      "subtopics": []
+    }
+  ],
+  "resources": {
+    "videos": {
+      "enabled": false,
+      "items": [
+        {
+          "type": "video",
+          "title": "Week 1",
+          "enabled": true,
+          "youtube_id": "dQw4w9WgXcQ"
+        }
+      ],
+      "playlist_url": ""
+    },
+    "notes": {
+      "enabled": false,
+      "items": []
+    },
+    "practice": {
+      "enabled": false,
+      "items": []
+    },
+    "pyqs": {
+      "enabled": false,
+      "items": []
+    },
+    "codes": {
+      "enabled": false,
+      "items": [],
+      "github_repo": ""
+    }
+  }
+}

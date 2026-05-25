@@ -1,0 +1,454 @@
+{
+  "description": "Complete catalog of courses offered from Foundation through Diploma levels.",
+  "levels_order": [
+    "Foundation",
+    "Diploma"
+  ],
+  "levels_status": {
+    "Foundation": true,
+    "Diploma": false
+  },
+  "id_alias": {
+    "math1": "BSMA1001",
+    "stat1": "BSMA1002",
+    "ct": "BSCS1001",
+    "eng1": "BSHS1001",
+    "math2": "BSMA1003",
+    "stat2": "BSMA1004",
+    "python": "BSCS1002",
+    "eng2": "BSHS1002"
+  },
+  "courses": [
+    {
+      "id": "BSMA1001",
+      "title": "Mathematics for Data Science I",
+      "description": "Covers set theory, calculus, graph theory, and discrete math foundations for data science.",
+      "level": "Foundation",
+      "category": "Theory",
+      "credits": 4,
+      "status": "coming-soon",
+      "visibility": false,
+      "prerequisites": [],
+      "corequisites": [],
+      "official_url": "https://study.iitm.ac.in/ds/course_pages/BSMA1001.html",
+      "thumbnail": "/assets/img/thumbnails/thumb_foundation.png",
+      "code": null
+    },
+    {
+      "id": "BSMA1002",
+      "title": "Statistics for Data Science I",
+      "description": "Introduces descriptive statistics, probability theory, and discrete/continuous distributions.",
+      "level": "Foundation",
+      "category": "Theory",
+      "credits": 4,
+      "status": "coming-soon",
+      "visibility": false,
+      "prerequisites": [],
+      "corequisites": [],
+      "official_url": "https://study.iitm.ac.in/ds/course_pages/BSMA1002.html",
+      "thumbnail": "/assets/img/thumbnails/thumb_foundation.png",
+      "code": null
+    },
+    {
+      "id": "BSCS1001",
+      "title": "Computational Thinking",
+      "description": "Foundational programming concepts, algorithms, data structures, and problem-solving techniques.",
+      "level": "Foundation",
+      "category": "Theory",
+      "credits": 4,
+      "status": "coming-soon",
+      "visibility": false,
+      "prerequisites": [],
+      "corequisites": [],
+      "official_url": "https://study.iitm.ac.in/ds/course_pages/BSCS1001.html",
+      "thumbnail": "/assets/img/thumbnails/thumb_foundation.png",
+      "code": null
+    },
+    {
+      "id": "BSHS1001",
+      "title": "English I",
+      "description": "Focuses on phonetics, grammar, and essential communication skills for professionals.",
+      "level": "Foundation",
+      "category": "Theory",
+      "credits": 4,
+      "status": "coming-soon",
+      "visibility": false,
+      "prerequisites": [],
+      "corequisites": [],
+      "official_url": "https://study.iitm.ac.in/ds/course_pages/BSHS1001.html",
+      "thumbnail": "/assets/img/thumbnails/thumb_foundation.png",
+      "code": null
+    },
+    {
+      "id": "BSMA1003",
+      "title": "Mathematics for Data Science II",
+      "description": "Advanced topics in linear algebra, multivariable calculus, and optimization.",
+      "level": "Foundation",
+      "category": "Theory",
+      "credits": 4,
+      "status": "coming-soon",
+      "visibility": false,
+      "prerequisites": [
+        "BSMA1001"
+      ],
+      "corequisites": [],
+      "official_url": "https://study.iitm.ac.in/ds/course_pages/BSMA1003.html",
+      "thumbnail": "/assets/img/thumbnails/thumb_foundation.png",
+      "code": null
+    },
+    {
+      "id": "BSMA1004",
+      "title": "Statistics for Data Science II",
+      "description": "Advanced statistical inference, joint distributions, hypothesis testing, and Bayesian estimation.",
+      "level": "Foundation",
+      "category": "Theory",
+      "credits": 4,
+      "status": "coming-soon",
+      "visibility": false,
+      "prerequisites": [
+        "BSMA1002",
+        "BSMA1001"
+      ],
+      "corequisites": [
+        "BSMA1003"
+      ],
+      "official_url": "https://study.iitm.ac.in/ds/course_pages/BSMA1004.html",
+      "thumbnail": "/assets/img/thumbnails/thumb_foundation.png",
+      "code": null
+    },
+    {
+      "id": "BSCS1002",
+      "title": "Programming in Python",
+      "description": "Comprehensive introduction to Python programming, data structures, and libraries like NumPy/Pandas.",
+      "level": "Foundation",
+      "category": "Theory",
+      "credits": 4,
+      "status": "coming-soon",
+      "visibility": false,
+      "prerequisites": [
+        "BSCS1001"
+      ],
+      "corequisites": [],
+      "official_url": "https://study.iitm.ac.in/ds/course_pages/BSCS1002.html",
+      "thumbnail": "/assets/img/thumbnails/thumb_foundation.png",
+      "code": null
+    },
+    {
+      "id": "BSHS1002",
+      "title": "English II",
+      "description": "Advanced English communication emphasizing professional writing, presentations, and active listening.",
+      "level": "Foundation",
+      "category": "Theory",
+      "credits": 4,
+      "status": "coming-soon",
+      "visibility": false,
+      "prerequisites": [
+        "BSHS1001"
+      ],
+      "corequisites": [],
+      "official_url": "https://study.iitm.ac.in/ds/course_pages/BSHS1002.html",
+      "thumbnail": "/assets/img/thumbnails/thumb_foundation.png",
+      "code": null
+    },
+    {
+      "id": "BSCS2001",
+      "title": "Database Management Systems",
+      "description": "In-depth study of relational databases, SQL, database design, and transaction management.",
+      "level": "Diploma",
+      "category": "Theory",
+      "credits": 4,
+      "status": "coming-soon",
+      "visibility": false,
+      "prerequisites": [],
+      "corequisites": [],
+      "official_url": "https://study.iitm.ac.in/ds/course_pages/BSCS2001.html",
+      "thumbnail": "/assets/img/thumbnails/thumb_diploma.png",
+      "code": null
+    },
+    {
+      "id": "BSCS2002",
+      "title": "Programming, Data Structures and Algorithms using Python",
+      "description": "Implementation and analysis of core data structures and algorithms using Python.",
+      "level": "Diploma",
+      "category": "Theory",
+      "credits": 4,
+      "status": "coming-soon",
+      "visibility": false,
+      "prerequisites": [],
+      "corequisites": [],
+      "official_url": "https://study.iitm.ac.in/ds/course_pages/BSCS2002.html",
+      "thumbnail": "/assets/img/thumbnails/thumb_diploma.png",
+      "code": null
+    },
+    {
+      "id": "BSCS2003",
+      "title": "Modern Application Development I",
+      "description": "Full-stack web development fundamentals covering HTML, CSS, JS, Flask, and REST APIs.",
+      "level": "Diploma",
+      "category": "Theory",
+      "credits": 4,
+      "status": "coming-soon",
+      "visibility": false,
+      "prerequisites": [],
+      "corequisites": [
+        "BSCS2001"
+      ],
+      "official_url": "https://study.iitm.ac.in/ds/course_pages/BSCS2003.html",
+      "thumbnail": "/assets/img/thumbnails/thumb_diploma.png",
+      "code": null
+    },
+    {
+      "id": "BSCS2003P",
+      "title": "Modern Application Development I - Project",
+      "description": "Practical hands-on project building a full-stack web application using Flask.",
+      "level": "Diploma",
+      "category": "Project",
+      "credits": 2,
+      "status": "coming-soon",
+      "visibility": false,
+      "prerequisites": [],
+      "corequisites": [
+        "BSCS2003"
+      ],
+      "official_url": "https://study.iitm.ac.in/ds/course_pages/BSCS2003P.html",
+      "thumbnail": "/assets/img/thumbnails/thumb_diploma.png",
+      "code": null
+    },
+    {
+      "id": "BSCS2005",
+      "title": "Programming Concepts using Java",
+      "description": "Object-oriented programming principles and advanced concepts using Java.",
+      "level": "Diploma",
+      "category": "Theory",
+      "credits": 4,
+      "status": "coming-soon",
+      "visibility": false,
+      "prerequisites": [],
+      "corequisites": [],
+      "official_url": "https://study.iitm.ac.in/ds/course_pages/BSCS2005.html",
+      "thumbnail": "/assets/img/thumbnails/thumb_diploma.png",
+      "code": null
+    },
+    {
+      "id": "BSCS2006",
+      "title": "Modern Application Development II",
+      "description": "Advanced application development featuring Vue.js, SPAs, state management, and modern architectures.",
+      "level": "Diploma",
+      "category": "Theory",
+      "credits": 4,
+      "status": "coming-soon",
+      "visibility": false,
+      "prerequisites": [
+        "BSCS2003"
+      ],
+      "corequisites": [],
+      "official_url": "https://study.iitm.ac.in/ds/course_pages/BSCS2006.html",
+      "thumbnail": "/assets/img/thumbnails/thumb_diploma.png",
+      "code": null
+    },
+    {
+      "id": "BSCS2006P",
+      "title": "Modern Application Development II - Project",
+      "description": "Practical hands-on project building a modern Single Page Application.",
+      "level": "Diploma",
+      "category": "Project",
+      "credits": 2,
+      "status": "coming-soon",
+      "visibility": false,
+      "prerequisites": [
+        "BSCS2003P"
+      ],
+      "corequisites": [
+        "BSCS2006"
+      ],
+      "official_url": "https://study.iitm.ac.in/ds/course_pages/BSCS2006P.html",
+      "thumbnail": "/assets/img/thumbnails/thumb_diploma.png",
+      "code": null
+    },
+    {
+      "id": "BSSE2001",
+      "title": "System Commands",
+      "description": "Essential Linux/Unix command line skills, bash scripting, and system administration.",
+      "level": "Diploma",
+      "category": "Theory",
+      "credits": 3,
+      "status": "coming-soon",
+      "visibility": false,
+      "prerequisites": [],
+      "corequisites": [],
+      "official_url": "https://study.iitm.ac.in/ds/course_pages/BSSE2001.html",
+      "thumbnail": "/assets/img/thumbnails/thumb_diploma.png",
+      "code": null
+    },
+    {
+      "id": "BSCS2004",
+      "title": "Machine Learning Foundations",
+      "description": "Core machine learning algorithms, regression, classification, and model evaluation techniques.",
+      "level": "Diploma",
+      "category": "Theory",
+      "credits": 4,
+      "status": "coming-soon",
+      "visibility": false,
+      "prerequisites": [],
+      "corequisites": [],
+      "official_url": "https://study.iitm.ac.in/ds/course_pages/BSCS2004.html",
+      "thumbnail": "/assets/img/thumbnails/thumb_diploma.png",
+      "code": null
+    },
+    {
+      "id": "BSMS2001",
+      "title": "Business Data Management",
+      "description": "Techniques for managing enterprise data, business intelligence, and ETL pipelines.",
+      "level": "Diploma",
+      "category": "Theory",
+      "credits": 4,
+      "status": "coming-soon",
+      "visibility": false,
+      "prerequisites": [],
+      "corequisites": [],
+      "official_url": "https://study.iitm.ac.in/ds/course_pages/BSMS2001.html",
+      "thumbnail": "/assets/img/thumbnails/thumb_diploma.png",
+      "code": null
+    },
+    {
+      "id": "BSCS2007",
+      "title": "Machine Learning Techniques",
+      "description": "Advanced ML techniques including tree ensembles, neural networks, and dimensionality reduction.",
+      "level": "Diploma",
+      "category": "Theory",
+      "credits": 4,
+      "status": "coming-soon",
+      "visibility": false,
+      "prerequisites": [],
+      "corequisites": [
+        "BSCS2004"
+      ],
+      "official_url": "https://study.iitm.ac.in/ds/course_pages/BSCS2007.html",
+      "thumbnail": "/assets/img/thumbnails/thumb_diploma.png",
+      "code": null
+    },
+    {
+      "id": "BSCS2008",
+      "title": "Machine Learning Practice",
+      "description": "Applied machine learning focusing on real-world pipelines, feature engineering, and deployment.",
+      "level": "Diploma",
+      "category": "Theory",
+      "credits": 4,
+      "status": "coming-soon",
+      "visibility": false,
+      "prerequisites": [
+        "BSCS2004",
+        "BSCS2007"
+      ],
+      "corequisites": [],
+      "official_url": "https://study.iitm.ac.in/ds/course_pages/BSCS2008.html",
+      "thumbnail": "/assets/img/thumbnails/thumb_diploma.png",
+      "code": null
+    },
+    {
+      "id": "BSCS2008P",
+      "title": "Machine Learning Practice - Project",
+      "description": "End-to-end practical machine learning project from data cleaning to model deployment.",
+      "level": "Diploma",
+      "category": "Project",
+      "credits": 2,
+      "status": "coming-soon",
+      "visibility": false,
+      "prerequisites": [],
+      "corequisites": [
+        "BSCS2008"
+      ],
+      "official_url": "https://study.iitm.ac.in/ds/course_pages/BSCS2008P.html",
+      "thumbnail": "/assets/img/thumbnails/thumb_diploma.png",
+      "code": null
+    },
+    {
+      "id": "BSSE2002",
+      "title": "Tools in Data Science",
+      "description": "Practical tooling for data scientists including Git, Docker, cloud computing, and automated pipelines.",
+      "level": "Diploma",
+      "category": "Theory",
+      "credits": 3,
+      "status": "coming-soon",
+      "visibility": false,
+      "prerequisites": [],
+      "corequisites": [
+        "BSCS2008"
+      ],
+      "official_url": "https://study.iitm.ac.in/ds/course_pages/BSSE2002.html",
+      "thumbnail": "/assets/img/thumbnails/thumb_diploma.png",
+      "code": null
+    },
+    {
+      "id": "BSMS2001P",
+      "title": "Business Data Management - Project",
+      "description": "Practical project implementing business intelligence dashboards and analytics reporting.",
+      "level": "Diploma",
+      "category": "Project",
+      "credits": 2,
+      "status": "coming-soon",
+      "visibility": false,
+      "prerequisites": [],
+      "corequisites": [
+        "BSMS2001"
+      ],
+      "official_url": "https://study.iitm.ac.in/ds/course_pages/BSMS2001P.html",
+      "thumbnail": "/assets/img/thumbnails/thumb_diploma.png",
+      "code": null
+    },
+    {
+      "id": "BSMS2002",
+      "title": "Business Analytics",
+      "description": "Strategic business analytics, forecasting, optimization, and data-driven decision making.",
+      "level": "Diploma",
+      "category": "Theory",
+      "credits": 4,
+      "status": "coming-soon",
+      "visibility": false,
+      "prerequisites": [
+        "BSMS2001"
+      ],
+      "corequisites": [],
+      "official_url": "https://study.iitm.ac.in/ds/course_pages/BSMS2002.html",
+      "thumbnail": "/assets/img/thumbnails/thumb_diploma.png",
+      "code": null
+    },
+    {
+      "id": "BSDA2001",
+      "title": "Introduction to Deep Learning and Generative AI",
+      "description": "Exploration of deep learning architectures, CNNs, RNNs, transformers, and generative models.",
+      "level": "Diploma",
+      "category": "Theory",
+      "credits": 4,
+      "status": "coming-soon",
+      "visibility": false,
+      "prerequisites": [],
+      "corequisites": [
+        "BSCS2008"
+      ],
+      "official_url": "https://study.iitm.ac.in/ds/course_pages/BSDA2001.html",
+      "thumbnail": "/assets/img/thumbnails/thumb_diploma.png",
+      "code": null
+    },
+    {
+      "id": "BSDA2001P",
+      "title": "Deep Learning and Generative AI - Project",
+      "description": "Hands-on project building and deploying a deep learning or generative AI model.",
+      "level": "Diploma",
+      "category": "Project",
+      "credits": 2,
+      "status": "coming-soon",
+      "visibility": false,
+      "prerequisites": [
+        "BSCS2007"
+      ],
+      "corequisites": [
+        "BSCS2008",
+        "BSDA2001"
+      ],
+      "official_url": "https://study.iitm.ac.in/ds/course_pages/BSDA2001P.html",
+      "thumbnail": "/assets/img/thumbnails/thumb_diploma.png",
+      "code": null
+    }
+  ]
+}

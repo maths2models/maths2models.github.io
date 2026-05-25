@@ -1,0 +1,112 @@
+{
+  "id": "BSDA2001",
+  "track": 2,
+  "topics": [
+    {
+      "week": 1,
+      "title": "Deep Learning",
+      "subtopics": []
+    },
+    {
+      "week": 2,
+      "title": "Neural Networks",
+      "subtopics": []
+    },
+    {
+      "week": 3,
+      "title": "Artificial Intelligence",
+      "subtopics": []
+    },
+    {
+      "week": 4,
+      "title": "Generative AI",
+      "subtopics": []
+    },
+    {
+      "week": 5,
+      "title": "Transformers",
+      "subtopics": []
+    },
+    {
+      "week": 6,
+      "title": "Large Language Models",
+      "subtopics": []
+    },
+    {
+      "week": 7,
+      "title": "Computer Vision",
+      "subtopics": []
+    },
+    {
+      "week": 8,
+      "title": "Natural Language Processing",
+      "subtopics": []
+    },
+    {
+      "week": 9,
+      "title": "CNN",
+      "subtopics": []
+    },
+    {
+      "week": 10,
+      "title": "RNN",
+      "subtopics": []
+    },
+    {
+      "week": 11,
+      "title": "Backpropagation",
+      "subtopics": []
+    },
+    {
+      "week": 12,
+      "title": "Model Training",
+      "subtopics": []
+    },
+    {
+      "week": 13,
+      "title": "TensorFlow",
+      "subtopics": []
+    },
+    {
+      "week": 14,
+      "title": "PyTorch",
+      "subtopics": []
+    },
+    {
+      "week": 15,
+      "title": "Diffusion Models",
+      "subtopics": []
+    }
+  ],
+  "resources": {
+    "videos": {
+      "enabled": false,
+      "items": [
+        {
+          "type": "video",
+          "title": "Week 1",
+          "enabled": true,
+          "youtube_id": "dQw4w9WgXcQ"
+        }
+      ],
+      "playlist_url": ""
+    },
+    "notes": {
+      "enabled": false,
+      "items": []
+    },
+    "practice": {
+      "enabled": false,
+      "items": []
+    },
+    "pyqs": {
+      "enabled": false,
+      "items": []
+    },
+    "codes": {
+      "enabled": false,
+      "items": [],
+      "github_repo": ""
+    }
+  }
+}

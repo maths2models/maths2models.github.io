@@ -1,0 +1,111 @@
+{
+  "id": "BSSE2001",
+  "topics": [
+    {
+      "week": 1,
+      "title": "Linux Basics",
+      "subtopics": []
+    },
+    {
+      "week": 2,
+      "title": "Shell Commands",
+      "subtopics": []
+    },
+    {
+      "week": 3,
+      "title": "Bash Scripting",
+      "subtopics": []
+    },
+    {
+      "week": 4,
+      "title": "File Systems",
+      "subtopics": []
+    },
+    {
+      "week": 5,
+      "title": "Permissions",
+      "subtopics": []
+    },
+    {
+      "week": 6,
+      "title": "Process Management",
+      "subtopics": []
+    },
+    {
+      "week": 7,
+      "title": "Environment Variables",
+      "subtopics": []
+    },
+    {
+      "week": 8,
+      "title": "Networking Basics",
+      "subtopics": []
+    },
+    {
+      "week": 9,
+      "title": "Git and Version Control",
+      "subtopics": []
+    },
+    {
+      "week": 10,
+      "title": "CLI Tools",
+      "subtopics": []
+    },
+    {
+      "week": 11,
+      "title": "Text Processing",
+      "subtopics": []
+    },
+    {
+      "week": 12,
+      "title": "Automation",
+      "subtopics": []
+    },
+    {
+      "week": 13,
+      "title": "Package Management",
+      "subtopics": []
+    },
+    {
+      "week": 14,
+      "title": "System Administration",
+      "subtopics": []
+    },
+    {
+      "week": 15,
+      "title": "DevOps Basics",
+      "subtopics": []
+    }
+  ],
+  "resources": {
+    "videos": {
+      "enabled": false,
+      "items": [
+        {
+          "type": "video",
+          "title": "Week 1",
+          "enabled": true,
+          "youtube_id": "dQw4w9WgXcQ"
+        }
+      ],
+      "playlist_url": ""
+    },
+    "notes": {
+      "enabled": false,
+      "items": []
+    },
+    "practice": {
+      "enabled": false,
+      "items": []
+    },
+    "pyqs": {
+      "enabled": false,
+      "items": []
+    },
+    "codes": {
+      "enabled": false,
+      "items": [],
+      "github_repo": ""
+    }
+  }
+}

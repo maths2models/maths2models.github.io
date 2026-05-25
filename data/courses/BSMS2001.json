@@ -1,0 +1,111 @@
+{
+  "id": "BSMS2001",
+  "topics": [
+    {
+      "week": 1,
+      "title": "Business Analytics",
+      "subtopics": []
+    },
+    {
+      "week": 2,
+      "title": "Data Management",
+      "subtopics": []
+    },
+    {
+      "week": 3,
+      "title": "Business Intelligence",
+      "subtopics": []
+    },
+    {
+      "week": 4,
+      "title": "Data Warehousing",
+      "subtopics": []
+    },
+    {
+      "week": 5,
+      "title": "ETL",
+      "subtopics": []
+    },
+    {
+      "week": 6,
+      "title": "SQL Analytics",
+      "subtopics": []
+    },
+    {
+      "week": 7,
+      "title": "Dashboards",
+      "subtopics": []
+    },
+    {
+      "week": 8,
+      "title": "Reporting",
+      "subtopics": []
+    },
+    {
+      "week": 9,
+      "title": "KPI Analysis",
+      "subtopics": []
+    },
+    {
+      "week": 10,
+      "title": "Data Governance",
+      "subtopics": []
+    },
+    {
+      "week": 11,
+      "title": "Enterprise Data",
+      "subtopics": []
+    },
+    {
+      "week": 12,
+      "title": "Decision Making",
+      "subtopics": []
+    },
+    {
+      "week": 13,
+      "title": "Business Metrics",
+      "subtopics": []
+    },
+    {
+      "week": 14,
+      "title": "Visualization",
+      "subtopics": []
+    },
+    {
+      "week": 15,
+      "title": "Data Strategy",
+      "subtopics": []
+    }
+  ],
+  "resources": {
+    "videos": {
+      "enabled": false,
+      "items": [
+        {
+          "type": "video",
+          "title": "Week 1",
+          "enabled": true,
+          "youtube_id": "dQw4w9WgXcQ"
+        }
+      ],
+      "playlist_url": ""
+    },
+    "notes": {
+      "enabled": false,
+      "items": []
+    },
+    "practice": {
+      "enabled": false,
+      "items": []
+    },
+    "pyqs": {
+      "enabled": false,
+      "items": []
+    },
+    "codes": {
+      "enabled": false,
+      "items": [],
+      "github_repo": ""
+    }
+  }
+}

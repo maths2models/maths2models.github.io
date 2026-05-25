@@ -1,0 +1,111 @@
+{
+  "id": "BSCS1001",
+  "topics": [
+    {
+      "week": 1,
+      "title": "Algorithms",
+      "subtopics": []
+    },
+    {
+      "week": 2,
+      "title": "Flowcharts",
+      "subtopics": []
+    },
+    {
+      "week": 3,
+      "title": "Pseudocode",
+      "subtopics": []
+    },
+    {
+      "week": 4,
+      "title": "Variables and Data Types",
+      "subtopics": []
+    },
+    {
+      "week": 5,
+      "title": "Conditionals",
+      "subtopics": []
+    },
+    {
+      "week": 6,
+      "title": "Iteration and Loops",
+      "subtopics": []
+    },
+    {
+      "week": 7,
+      "title": "Procedures and Functions",
+      "subtopics": []
+    },
+    {
+      "week": 8,
+      "title": "Lists and Dictionaries",
+      "subtopics": []
+    },
+    {
+      "week": 9,
+      "title": "Sorting Algorithms",
+      "subtopics": []
+    },
+    {
+      "week": 10,
+      "title": "Graphs and Matrices",
+      "subtopics": []
+    },
+    {
+      "week": 11,
+      "title": "Trees and Recursion",
+      "subtopics": []
+    },
+    {
+      "week": 12,
+      "title": "Backtracking",
+      "subtopics": []
+    },
+    {
+      "week": 13,
+      "title": "Object Oriented Programming",
+      "subtopics": []
+    },
+    {
+      "week": 14,
+      "title": "Concurrency and Parallelism",
+      "subtopics": []
+    },
+    {
+      "week": 15,
+      "title": "Decision Trees",
+      "subtopics": []
+    }
+  ],
+  "resources": {
+    "videos": {
+      "enabled": false,
+      "items": [
+        {
+          "type": "video",
+          "title": "Week 1",
+          "enabled": true,
+          "youtube_id": "dQw4w9WgXcQ"
+        }
+      ],
+      "playlist_url": ""
+    },
+    "notes": {
+      "enabled": false,
+      "items": []
+    },
+    "practice": {
+      "enabled": false,
+      "items": []
+    },
+    "pyqs": {
+      "enabled": false,
+      "items": []
+    },
+    "codes": {
+      "enabled": false,
+      "items": [],
+      "github_repo": ""
+    }
+  }
+}

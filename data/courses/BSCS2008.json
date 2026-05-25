@@ -1,0 +1,111 @@
+{
+  "id": "BSCS2008",
+  "topics": [
+    {
+      "week": 1,
+      "title": "Applied Machine Learning",
+      "subtopics": []
+    },
+    {
+      "week": 2,
+      "title": "Model Building",
+      "subtopics": []
+    },
+    {
+      "week": 3,
+      "title": "Data Cleaning",
+      "subtopics": []
+    },
+    {
+      "week": 4,
+      "title": "Feature Engineering",
+      "subtopics": []
+    },
+    {
+      "week": 5,
+      "title": "Model Validation",
+      "subtopics": []
+    },
+    {
+      "week": 6,
+      "title": "Pipelines",
+      "subtopics": []
+    },
+    {
+      "week": 7,
+      "title": "Scikit Learn",
+      "subtopics": []
+    },
+    {
+      "week": 8,
+      "title": "Evaluation Metrics",
+      "subtopics": []
+    },
+    {
+      "week": 9,
+      "title": "Real World Datasets",
+      "subtopics": []
+    },
+    {
+      "week": 10,
+      "title": "Data Visualization",
+      "subtopics": []
+    },
+    {
+      "week": 11,
+      "title": "Experiment Tracking",
+      "subtopics": []
+    },
+    {
+      "week": 12,
+      "title": "Predictive Analytics",
+      "subtopics": []
+    },
+    {
+      "week": 13,
+      "title": "Deployment Basics",
+      "subtopics": []
+    },
+    {
+      "week": 14,
+      "title": "Case Studies",
+      "subtopics": []
+    },
+    {
+      "week": 15,
+      "title": "End to End ML",
+      "subtopics": []
+    }
+  ],
+  "resources": {
+    "videos": {
+      "enabled": false,
+      "items": [
+        {
+          "type": "video",
+          "title": "Week 1",
+          "enabled": true,
+          "youtube_id": "dQw4w9WgXcQ"
+        }
+      ],
+      "playlist_url": ""
+    },
+    "notes": {
+      "enabled": false,
+      "items": []
+    },
+    "practice": {
+      "enabled": false,
+      "items": []
+    },
+    "pyqs": {
+      "enabled": false,
+      "items": []
+    },
+    "codes": {
+      "enabled": false,
+      "items": [],
+      "github_repo": ""
+    }
+  }
+}

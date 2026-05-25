@@ -1,0 +1,111 @@
+{
+  "id": "BSMA1004",
+  "topics": [
+    {
+      "week": 1,
+      "title": "Multiple Random Variables",
+      "subtopics": []
+    },
+    {
+      "week": 2,
+      "title": "Joint Distributions",
+      "subtopics": []
+    },
+    {
+      "week": 3,
+      "title": "Random Variable Functions",
+      "subtopics": []
+    },
+    {
+      "week": 4,
+      "title": "Expectation",
+      "subtopics": []
+    },
+    {
+      "week": 5,
+      "title": "Variance",
+      "subtopics": []
+    },
+    {
+      "week": 6,
+      "title": "Covariance",
+      "subtopics": []
+    },
+    {
+      "week": 7,
+      "title": "Correlation",
+      "subtopics": []
+    },
+    {
+      "week": 8,
+      "title": "Continuous Random Variables",
+      "subtopics": []
+    },
+    {
+      "week": 9,
+      "title": "Probability Density Functions",
+      "subtopics": []
+    },
+    {
+      "week": 10,
+      "title": "Gaussian Distributions",
+      "subtopics": []
+    },
+    {
+      "week": 11,
+      "title": "Limit Theorems",
+      "subtopics": []
+    },
+    {
+      "week": 12,
+      "title": "Statistical Inference",
+      "subtopics": []
+    },
+    {
+      "week": 13,
+      "title": "Bayesian Estimation",
+      "subtopics": []
+    },
+    {
+      "week": 14,
+      "title": "Hypothesis Testing",
+      "subtopics": []
+    },
+    {
+      "week": 15,
+      "title": "Probability Models",
+      "subtopics": []
+    }
+  ],
+  "resources": {
+    "videos": {
+      "enabled": false,
+      "items": [
+        {
+          "type": "video",
+          "title": "Week 1",
+          "enabled": true,
+          "youtube_id": "dQw4w9WgXcQ"
+        }
+      ],
+      "playlist_url": ""
+    },
+    "notes": {
+      "enabled": false,
+      "items": []
+    },
+    "practice": {
+      "enabled": false,
+      "items": []
+    },
+    "pyqs": {
+      "enabled": false,
+      "items": []
+    },
+    "codes": {
+      "enabled": false,
+      "items": [],
+      "github_repo": ""
+    }
+  }
+}

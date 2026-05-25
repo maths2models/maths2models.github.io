@@ -1,0 +1,112 @@
+{
+  "id": "BSMS2002",
+  "track": 1,
+  "topics": [
+    {
+      "week": 1,
+      "title": "Business Analytics",
+      "subtopics": []
+    },
+    {
+      "week": 2,
+      "title": "Statistical Analysis",
+      "subtopics": []
+    },
+    {
+      "week": 3,
+      "title": "Forecasting",
+      "subtopics": []
+    },
+    {
+      "week": 4,
+      "title": "Regression Analysis",
+      "subtopics": []
+    },
+    {
+      "week": 5,
+      "title": "Optimization",
+      "subtopics": []
+    },
+    {
+      "week": 6,
+      "title": "Decision Models",
+      "subtopics": []
+    },
+    {
+      "week": 7,
+      "title": "Predictive Analytics",
+      "subtopics": []
+    },
+    {
+      "week": 8,
+      "title": "Time Series",
+      "subtopics": []
+    },
+    {
+      "week": 9,
+      "title": "Business Intelligence",
+      "subtopics": []
+    },
+    {
+      "week": 10,
+      "title": "KPI Analysis",
+      "subtopics": []
+    },
+    {
+      "week": 11,
+      "title": "Data Visualization",
+      "subtopics": []
+    },
+    {
+      "week": 12,
+      "title": "Data Interpretation",
+      "subtopics": []
+    },
+    {
+      "week": 13,
+      "title": "Business Strategy",
+      "subtopics": []
+    },
+    {
+      "week": 14,
+      "title": "Case Studies",
+      "subtopics": []
+    },
+    {
+      "week": 15,
+      "title": "Data Driven Decisions",
+      "subtopics": []
+    }
+  ],
+  "resources": {
+    "videos": {
+      "enabled": false,
+      "items": [
+        {
+          "type": "video",
+          "title": "Week 1",
+          "enabled": true,
+          "youtube_id": "dQw4w9WgXcQ"
+        }
+      ],
+      "playlist_url": ""
+    },
+    "notes": {
+      "enabled": false,
+      "items": []
+    },
+    "practice": {
+      "enabled": false,
+      "items": []
+    },
+    "pyqs": {
+      "enabled": false,
+      "items": []
+    },
+    "codes": {
+      "enabled": false,
+      "items": [],
+      "github_repo": ""
+    }
+  }
+}

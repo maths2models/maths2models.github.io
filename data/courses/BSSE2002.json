@@ -1,0 +1,111 @@
+{
+  "id": "BSSE2002",
+  "topics": [
+    {
+      "week": 1,
+      "title": "Python for Data Science",
+      "subtopics": []
+    },
+    {
+      "week": 2,
+      "title": "Jupyter Notebook",
+      "subtopics": []
+    },
+    {
+      "week": 3,
+      "title": "Git and GitHub",
+      "subtopics": []
+    },
+    {
+      "week": 4,
+      "title": "Data Visualization",
+      "subtopics": []
+    },
+    {
+      "week": 5,
+      "title": "APIs",
+      "subtopics": []
+    },
+    {
+      "week": 6,
+      "title": "Web Scraping",
+      "subtopics": []
+    },
+    {
+      "week": 7,
+      "title": "Docker",
+      "subtopics": []
+    },
+    {
+      "week": 8,
+      "title": "Linux Commands",
+      "subtopics": []
+    },
+    {
+      "week": 9,
+      "title": "Cloud Computing",
+      "subtopics": []
+    },
+    {
+      "week": 10,
+      "title": "SQL",
+      "subtopics": []
+    },
+    {
+      "week": 11,
+      "title": "Automation",
+      "subtopics": []
+    },
+    {
+      "week": 12,
+      "title": "Data Pipelines",
+      "subtopics": []
+    },
+    {
+      "week": 13,
+      "title": "Open Source Tools",
+      "subtopics": []
+    },
+    {
+      "week": 14,
+      "title": "Machine Learning Tools",
+      "subtopics": []
+    },
+    {
+      "week": 15,
+      "title": "Data Science Workflow",
+      "subtopics": []
+    }
+  ],
+  "resources": {
+    "videos": {
+      "enabled": false,
+      "items": [
+        {
+          "type": "video",
+          "title": "Week 1",
+          "enabled": true,
+          "youtube_id": "dQw4w9WgXcQ"
+        }
+      ],
+      "playlist_url": ""
+    },
+    "notes": {
+      "enabled": false,
+      "items": []
+    },
+    "practice": {
+      "enabled": false,
+      "items": []
+    },
+    "pyqs": {
+      "enabled": false,
+      "items": []
+    },
+    "codes": {
+      "enabled": false,
+      "items": [],
+      "github_repo": ""
+    }
+  }
+}

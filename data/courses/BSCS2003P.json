@@ -1,0 +1,86 @@
+{
+  "id": "BSCS2003P",
+  "topics": [
+    {
+      "week": 1,
+      "title": "Web Applications",
+      "subtopics": []
+    },
+    {
+      "week": 2,
+      "title": "Flask Project",
+      "subtopics": []
+    },
+    {
+      "week": 3,
+      "title": "Frontend Integration",
+      "subtopics": []
+    },
+    {
+      "week": 4,
+      "title": "Backend APIs",
+      "subtopics": []
+    },
+    {
+      "week": 5,
+      "title": "Authentication",
+      "subtopics": []
+    },
+    {
+      "week": 6,
+      "title": "CRUD Operations",
+      "subtopics": []
+    },
+    {
+      "week": 7,
+      "title": "Database Connectivity",
+      "subtopics": []
+    },
+    {
+      "week": 8,
+      "title": "UI Design",
+      "subtopics": []
+    },
+    {
+      "week": 9,
+      "title": "Deployment",
+      "subtopics": []
+    },
+    {
+      "week": 10,
+      "title": "Full Stack Project",
+      "subtopics": []
+    }
+  ],
+  "resources": {
+    "videos": {
+      "enabled": false,
+      "items": [
+        {
+          "type": "video",
+          "title": "Week 1",
+          "enabled": true,
+          "youtube_id": "dQw4w9WgXcQ"
+        }
+      ],
+      "playlist_url": ""
+    },
+    "notes": {
+      "enabled": false,
+      "items": []
+    },
+    "practice": {
+      "enabled": false,
+      "items": []
+    },
+    "pyqs": {
+      "enabled": false,
+      "items": []
+    },
+    "codes": {
+      "enabled": false,
+      "items": [],
+      "github_repo": ""
+    }
+  }
+}

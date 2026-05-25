@@ -1,0 +1,86 @@
+{
+  "id": "BSCS2006P",
+  "topics": [
+    {
+      "week": 1,
+      "title": "SPA Development",
+      "subtopics": []
+    },
+    {
+      "week": 2,
+      "title": "Vue.js Projects",
+      "subtopics": []
+    },
+    {
+      "week": 3,
+      "title": "API Integration",
+      "subtopics": []
+    },
+    {
+      "week": 4,
+      "title": "Authentication Systems",
+      "subtopics": []
+    },
+    {
+      "week": 5,
+      "title": "Frontend State Management",
+      "subtopics": []
+    },
+    {
+      "week": 6,
+      "title": "Backend Services",
+      "subtopics": []
+    },
+    {
+      "week": 7,
+      "title": "Responsive UI",
+      "subtopics": []
+    },
+    {
+      "week": 8,
+      "title": "Deployment",
+      "subtopics": []
+    },
+    {
+      "week": 9,
+      "title": "Web Security",
+      "subtopics": []
+    },
+    {
+      "week": 10,
+      "title": "Full Stack Applications",
+      "subtopics": []
+    }
+  ],
+  "resources": {
+    "videos": {
+      "enabled": false,
+      "items": [
+        {
+          "type": "video",
+          "title": "Week 1",
+          "enabled": true,
+          "youtube_id": "dQw4w9WgXcQ"
+        }
+      ],
+      "playlist_url": ""
+    },
+    "notes": {
+      "enabled": false,
+      "items": []
+    },
+    "practice": {
+      "enabled": false,
+      "items": []
+    },
+    "pyqs": {
+      "enabled": false,
+      "items": []
+    },
+    "codes": {
+      "enabled": false,
+      "items": [],
+      "github_repo": ""
+    }
+  }
+}
