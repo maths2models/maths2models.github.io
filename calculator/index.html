@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Advanced CGPA Calculator for IITM BS Data Science">
+  <title>CGPA Calculator | Maths2Models</title>
+  
+  <!-- Main Platform Styling -->
+  <link rel="icon" href="/assets/img/logo.png" type="image/png">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+  
+  <!-- Standalone Premium Calculator Styles -->
+  <link rel="stylesheet" href="style.css">
+  <style>
+    @keyframes pulse-attention {
+      0% { transform: scale(1); opacity: 0.9; }
+      50% { transform: scale(1.05); opacity: 1; text-shadow: 0 0 8px var(--c-accent); }
+      100% { transform: scale(1); opacity: 0.9; }
+    }
+    .pulse-link {
+      animation: pulse-attention 2s infinite ease-in-out;
+      transform-origin: left center;
+    }
+    .pulse-link:hover {
+      animation: none;
+      text-decoration: underline !important;
+    }
+  </style>
+  <script src="/assets/js/theme.js"></script>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="app-header glass">
+    <div style="display:flex; align-items:center; gap:1rem;">
+      <a href="/" style="text-decoration:none;">
+        <img src="/assets/img/logo.png" alt="Logo" width="32" height="32">
+      </a>
+      <div style="display:flex; flex-direction:column; align-items:flex-start; justify-content:center;">
+        <h1 class="app-title" style="line-height:1.2;">CGPA Calculator</h1>
+        <a href="https://docs.google.com/document/u/1/d/e/2PACX-1vT5PBOz4OH663W0IJPVGVjG_nfmYZGfFI7W1j-6wTLcex13O_7BZmf6a96Q6liO0W-mLZB5hOGZeNNl/pub?urp=gmail_link&pli=1" 
+           target="_blank" rel="noopener" class="pulse-link"
+           style="color: var(--c-accent); font-size: 0.75rem; font-weight: 700; text-decoration: none; padding-top: 0.25rem;">
+          Based on May 2026 Grading Document ↗
+        </a>
+      </div>
+    </div>
+    <div class="header-actions">
+      <button class="btn btn-icon" id="global-theme-toggle" title="Toggle Theme" aria-label="Toggle Theme">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="nav-icon-sun" style="display:none;"><use href="/assets/svg/sprite.svg#icon-sun"></use></svg>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="nav-icon-moon"><use href="/assets/svg/sprite.svg#icon-moon"></use></svg>
+      </button>
+      <a href="/" class="btn btn-secondary" style="text-decoration:none;">Go to Home</a>
+      <button class="btn btn-secondary" id="btn-export-json">Export JSON</button>
+      <button class="btn btn-primary" id="btn-export-pdf">Export PDF</button>
+    </div>
+  </header>
+
+  <div class="app-container">
+    <!-- Left Sidebar: Course Selection -->
+    <aside class="glass glass-panel" style="align-self: start;">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 1.5rem;">
+        <h2 style="font-size:1.125rem; font-weight:700;">Select Courses</h2>
+        <span style="font-size:0.75rem; color:var(--c-text-muted);" id="course-counter">0 / 4</span>
+      </div>
+      
+      <!-- Academic History -->
+      <div class="course-group">
+        <h3 class="course-group-title">Previous Academic History</h3>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+          <div class="input-group">
+            <label class="input-label">Prev CGPA</label>
+            <input type="text" inputmode="decimal" id="prev-cgpa" class="input-field" value="0">
+          </div>
+          <div class="input-group">
+            <label class="input-label">Prev Credits</label>
+            <input type="text" inputmode="numeric" id="prev-credits" class="input-field" value="0">
+          </div>
+        </div>
+      </div>
+
+      <div class="course-group">
+        <h3 class="course-group-title" style="display:flex; justify-content:space-between; align-items:center;">
+          Course Level
+        </h3>
+        <div class="level-selector">
+          <input type="radio" id="level-foundation" name="course-level" value="Foundation" checked>
+          <label for="level-foundation" class="level-btn">Foundation</label>
+          
+          <input type="radio" id="level-diploma" name="course-level" value="Diploma">
+          <label for="level-diploma" class="level-btn">Diploma</label>
+        </div>
+      </div>
+
+      <div class="course-group">
+        <h3 class="course-group-title">Available Courses</h3>
+        <div id="course-list" style="display:flex; flex-direction:column; gap:0.5rem; max-height:400px; overflow-y:auto; padding-right:0.5rem;"></div>
+      </div>
+    </aside>
+
+    <!-- Center: Workspace (Dynamic inputs) -->
+    <main>
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 1.5rem;">
+        <h2 style="font-size:1.5rem; font-weight:700;">Calculator Workspace</h2>
+        <button class="btn btn-secondary" id="btn-reset" title="Reset All" style="gap:0.5rem; color:#ef4444; border-color:#fca5a5;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="/assets/svg/sprite.svg#icon-reset"></use></svg>
+          Reset All
+        </button>
+      </div>
+      
+      <div id="active-courses">
+        <div class="workspace-empty">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" style="margin-bottom:1rem; color:var(--c-text-muted);"><use href="/assets/svg/sprite.svg#icon-document-text"></use></svg>
+          <h3>No Courses Selected</h3>
+          <p style="font-size:0.875rem;">Select up to 4 courses from the sidebar to begin.</p>
+        </div>
+      </div>
+    </main>
+
+    <!-- Right Sidebar: Results & Summary -->
+    <aside class="summary-sticky">
+      <div class="cgpa-display">
+        <h3 style="font-size:0.875rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--c-text-secondary);">Updated CGPA</h3>
+        <div class="cgpa-value" id="res-cgpa">0.00</div>
+        <p style="font-size:0.75rem; color:var(--c-text-muted);">Cumulative Grade Point Average</p>
+      </div>
+
+      <div class="glass glass-panel">
+        <h3 style="font-size:1rem; font-weight:700; margin-bottom:1rem; padding-bottom:0.5rem; border-bottom:1px solid var(--c-border);">Term Summary</h3>
+        <div class="stat-row">
+          <span style="color:var(--c-text-secondary);">Term SGPA</span>
+          <strong id="res-sgpa" style="color:var(--c-primary);">0.00</strong>
+        </div>
+        <div class="stat-row">
+          <span style="color:var(--c-text-secondary);">Term Credits</span>
+          <strong id="res-term-credits">0</strong>
+        </div>
+        <div class="stat-row">
+          <span style="color:var(--c-text-secondary);">Total Credits</span>
+          <strong id="res-total-credits">0</strong>
+        </div>
+        <div class="stat-row">
+          <span style="color:var(--c-text-secondary);">Courses Passed</span>
+          <strong id="res-passed" style="color:#4ade80;">0</strong>
+        </div>
+        <div class="stat-row">
+          <span style="color:var(--c-text-secondary);">Courses Failed</span>
+          <strong id="res-failed" style="color:#f87171;">0</strong>
+        </div>
+      </div>
+      
+      <p style="font-size:0.75rem; color:var(--c-text-muted); margin-top:1.5rem; text-align:center;">
+        *Disclaimer: Unofficial calculator. Verify formulas with the official IITM student handbook.
+      </p>
+    </aside>
+  </div>
+
+  <div id="footer-container"></div>
+
+  <div class="toast-container" id="toast-container"></div>
+
+  <script src="/assets/js/utils.js"></script>
+  <script src="/assets/js/render.js"></script>
+  <script src="/assets/js/core.js"></script>
+  <script>
+    (async function() {
+      if (await window.M2M.checkMaintenance()) return;
+    })();
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>
