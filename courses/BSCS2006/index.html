@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Course Details | Maths2Models</title>
+  <link rel="icon" href="/assets/img/logo.png" type="image/png">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css?v=55">
+  <link rel="stylesheet" href="/assets/css/components.css?v=55">
+  <link rel="stylesheet" href="/assets/css/animations.css">
+  <script src="/assets/js/theme.js"></script>
+</head>
+<body>
+  <div id="navbar-container"></div>
+  <div id="breadcrumb-container"></div>
+
+  <main id="main-content">
+    <div class="section">
+      <div class="container">
+        <!-- Skeleton loader -->
+        <div class="course-header" style="opacity: 0.5">
+          <div class="shimmer" style="width:120px;height:120px;border-radius:var(--radius-lg)"></div>
+          <div style="flex:1">
+            <div class="shimmer" style="height:40px;width:60%;margin-bottom:16px;border-radius:var(--radius-sm)"></div>
+            <div class="shimmer" style="height:20px;width:100%;margin-bottom:8px;border-radius:var(--radius-sm)"></div>
+            <div class="shimmer" style="height:20px;width:80%;margin-bottom:16px;border-radius:var(--radius-sm)"></div>
+            <div style="display:flex; gap:8px">
+              <div class="shimmer" style="height:24px;width:80px;border-radius:var(--radius-sm)"></div>
+              <div class="shimmer" style="height:24px;width:80px;border-radius:var(--radius-sm)"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-container"></div>
+
+  <script src="/assets/js/utils.js?v=56"></script>
+  <script src="/assets/js/router.js?v=56"></script>
+  <script src="/assets/js/render.js?v=56"></script>
+  <script src="/assets/js/core.js?v=56"></script>
+  <script>
+    (async function () {
+      function renderDetail(course, data, container) {
+        container.innerHTML = `
+          <div class="section">
+            <div class="container">
+              ${M2M.render.courseDetailHeader(course)}
+              ${course.resources ? M2M.render.tabPanel(course.resources, course) : M2M.render.comingSoon(1, 'Course content is being prepared.')}
+              
+              <div style="margin-top: var(--space-12); padding-top: var(--space-8); border-top: 1px solid var(--color-border); text-align: center;" class="observe-fade">
+                <a href="/courses/" class="btn btn--secondary btn--lg">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><use href="/assets/svg/sprite.svg#icon-arrow-left"></use></svg>
+                  Go Back to Courses
+                </a>
+              </div>
+            </div>
+          </div>
+        `;
+        requestAnimationFrame(() => M2M.initScrollEffects());
+      }
+
+      await M2M.router.renderPage({
+        itemsKey: 'courses', // not used strictly in detail if we fetch direct
+        renderDetail: renderDetail,
+        breadcrumbSection: 'Courses',
+        sectionHref: '/courses/'
+      });
+    })();
+  </script>
+</body>
+</html>

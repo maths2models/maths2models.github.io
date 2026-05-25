@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore all courses from Foundation to Diploma level in the IITM BS Data Science program.">
+  <meta property="og:title" content="All Courses | Maths2Models">
+  <meta property="og:description" content="Explore all courses from Foundation to Diploma level in the IITM BS Data Science program.">
+  <meta property="og:image" content="/assets/img/og.png">
+  <title>All Courses | Maths2Models</title>
+  <link rel="icon" href="/assets/img/logo.png" type="image/png">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css?v=55">
+  <link rel="stylesheet" href="/assets/css/components.css?v=55">
+  <link rel="stylesheet" href="/assets/css/animations.css">
+  <script src="/assets/js/theme.js"></script>
+</head>
+<body>
+  <div id="navbar-container"></div>
+  <div id="breadcrumb-container"></div>
+
+  <main id="main-content">
+    <div class="section">
+      <div class="container">
+        <div class="shimmer" style="height:200px;border-radius:var(--radius-lg)"></div>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-container"></div>
+
+  <script src="/assets/js/utils.js?v=55"></script>
+  <script src="/assets/js/router.js?v=55"></script>
+  <script src="/assets/js/render.js?v=55"></script>
+  <script src="/assets/js/core.js?v=55"></script>
+  <script>
+    (async function () {
+      function renderListing(data, container) {
+        const levelsStatus = data.levels_status || {};
+        const allCourses = (data.courses || []).filter(c => 
+          c.visibility !== false && 
+          (c.status === 'active' || c.status === 'in-progress') &&
+          levelsStatus[c.level] !== false
+        );
+        let levelsOrder = data.levels_order || ["Foundation", "Diploma"];
+        
+        // Filter out disabled levels
+        levelsOrder = levelsOrder.filter(level => levelsStatus[level] !== false);
+        
+        let html = `
+          <div class="section">
+            <div class="container">
+              ${M2M.render.pageHeader(
+                'Academic Courses',
+                data.description || 'Explore our comprehensive course catalog.',
+                allCourses.length + ' Total Courses'
+              )}
+
+              <div style="display:flex; justify-content:center; gap:var(--space-4); margin-bottom:var(--space-8); overflow-x:auto; padding:var(--space-4); background:var(--color-bg-surface); border-radius:var(--radius-lg); border: 1px solid var(--color-border);">
+                <button class="btn btn--primary course-filter-btn" style="color:#ffffff; font-weight:bold;" data-filter="all" onclick="filterCourses('all', this)">All</button>
+                ${levelsOrder.map(l => `<button class="btn btn--secondary course-filter-btn" style="color:var(--color-text-primary); font-weight:bold; background:transparent;" data-filter="${l.toLowerCase()}" onclick="filterCourses('${l.toLowerCase()}', this)">${l}</button>`).join('')}
+              </div>
+        `;
+
+        levelsOrder.forEach(level => {
+          const levelCourses = allCourses.filter(c => c.level === level);
+          if (levelCourses.length === 0) return;
+
+          const theoryCount = levelCourses.filter(c => (c.category || 'Theory') === 'Theory').length;
+          const projCount = levelCourses.filter(c => c.category === 'Project').length;
+          const otherCount = levelCourses.length - theoryCount - projCount;
+
+          let statsText = `${levelCourses.length} Courses (${theoryCount} Theory`;
+          if (projCount > 0) statsText += `, ${projCount} Project`;
+          if (otherCount > 0) statsText += `, ${otherCount} Other`;
+          statsText += `)`;
+
+          html += `
+            <div class="course-level-section" data-level="${level}">
+              <div style="margin-top:var(--space-8); margin-bottom:var(--space-8); border-bottom:1px solid var(--color-border); padding-bottom:var(--space-4); display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:var(--space-4);">
+                <h2 style="font-size:var(--font-size-3xl); font-weight:var(--font-weight-bold); color:var(--color-primary); margin:0;">${level} Level</h2>
+                <div style="font-size:var(--font-size-sm); color:var(--color-text-secondary); background:var(--color-bg-surface); padding:var(--space-2) var(--space-4); border-radius:var(--radius-full); border:1px solid var(--color-border);">
+                  ${statsText}
+                </div>
+              </div>
+          `;
+
+          // Group by category within the level
+          const categories = [...new Set(levelCourses.map(c => c.category || 'Theory'))].sort();
+
+          categories.forEach(category => {
+            const catCourses = levelCourses.filter(c => (c.category || 'Theory') === category);
+            if (catCourses.length === 0) return;
+
+            html += `
+              <div style="margin-bottom:var(--space-6);">
+                <div style="margin-bottom:var(--space-4);">
+                  ${M2M.render.badge(category, 'primary')}
+                </div>
+                <div class="grid grid--3">
+                  ${catCourses.map(c => M2M.render.courseCard(c, './')).join('')}
+                </div>
+              </div>
+            `;
+          });
+          
+          html += `</div>`; // Close course-level-section
+        });
+
+        html += `
+            </div>
+          </div>
+        `;
+        container.innerHTML = html;
+        requestAnimationFrame(() => M2M.initScrollEffects());
+      }
+
+      function renderDetail(course, data, container) {
+        container.innerHTML = `
+          <div class="section">
+            <div class="container">
+              ${M2M.render.courseDetailHeader(course)}
+              ${course.resources ? M2M.render.tabPanel(course.resources, course) : M2M.render.comingSoon(1, 'Course content is being prepared.')}
+              
+              <div style="margin-top: var(--space-12); padding-top: var(--space-8); border-top: 1px solid var(--color-border); text-align: center;" class="observe-fade">
+                <a href="./" class="btn btn--secondary btn--lg">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><use href="/assets/svg/sprite.svg#icon-arrow-left"></use></svg>
+                  Go Back to Courses
+                </a>
+              </div>
+            </div>
+          </div>
+        `;
+        requestAnimationFrame(() => {
+          M2M.initScrollEffects();
+          
+          const urlParams = new URLSearchParams(window.location.search);
+          const targetTab = urlParams.get('tab');
+          if (targetTab && typeof M2M.switchTab === 'function') {
+            M2M.switchTab(targetTab);
+            
+            const targetWeek = urlParams.get('week');
+            if (targetWeek) {
+              setTimeout(() => {
+                const weekEl = document.querySelector(`#tab-${targetTab} [data-week="${targetWeek}"]`);
+                if (weekEl) {
+                  weekEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                  weekEl.style.transition = 'box-shadow 0.3s ease';
+                  weekEl.style.boxShadow = '0 0 0 2px var(--color-primary)';
+                  setTimeout(() => weekEl.style.boxShadow = '', 2000);
+                }
+              }, 100); // Wait for tab switch
+            }
+          }
+        });
+      }
+
+      await M2M.router.renderPage({
+        jsonPath: '/data/courses-index.json',
+        useSplitJson: true,
+        itemsKey: 'courses',
+        renderListing: renderListing,
+        renderDetail: renderDetail,
+        breadcrumbSection: 'Courses',
+        sectionHref: '/courses/'
+      });
+
+      // Apply URL filter if exists
+      const urlParams = new URLSearchParams(window.location.search);
+      const filterParam = urlParams.get('filter');
+      if (filterParam) {
+        const btn = document.querySelector('.course-filter-btn[data-filter="' + filterParam.toLowerCase() + '"]');
+        if (btn) {
+          window.filterCourses(filterParam.toLowerCase(), btn);
+        } else if (filterParam.toLowerCase() !== 'all') {
+          // If button isn't found, the level is likely disabled or invalid.
+          const container = document.getElementById('main-content');
+          if (container) {
+            container.innerHTML = `
+              <div class="section">
+                <div class="container">
+                  <div class="coming-soon coming-soon--section">
+                    <div class="coming-soon-icon">🔒</div>
+                    <h3>Content Locked</h3>
+                    <p>The requested level is currently disabled or unavailable.</p>
+                    <div class="coming-soon-actions">
+                      <a href="./" class="btn btn--primary">← View Available Courses</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            `;
+          }
+        }
+      }
+    })();
+
+    // Global filter function
+    window.filterCourses = function(selectedLevel, btnElement) {
+      // Update URL without reloading page
+      const newUrl = new URL(window.location);
+      if (selectedLevel.toLowerCase() === 'all') {
+        newUrl.searchParams.delete('filter');
+      } else {
+        newUrl.searchParams.set('filter', selectedLevel.toLowerCase());
+      }
+      window.history.replaceState({}, '', newUrl);
+
+      // Update button styles
+      document.querySelectorAll('.course-filter-btn').forEach(btn => {
+        btn.classList.remove('btn--primary');
+        btn.classList.add('btn--secondary');
+        btn.style.color = 'var(--color-text-primary)';
+        btn.style.background = 'transparent';
+      });
+      btnElement.classList.remove('btn--secondary');
+      btnElement.classList.add('btn--primary');
+      btnElement.style.color = '#ffffff';
+      btnElement.style.background = '';
+
+      // Toggle sections
+      document.querySelectorAll('.course-level-section').forEach(section => {
+        if (selectedLevel.toLowerCase() === 'all' || section.getAttribute('data-level').toLowerCase() === selectedLevel.toLowerCase()) {
+          section.style.display = 'block';
+        } else {
+          section.style.display = 'none';
+        }
+      });
+    };
+  </script>
+</body>
+</html>
